@@ -1,0 +1,763 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Impactos da Implantação · BackOffice</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+:root{
+ --bg:oklch(96.5% .012 260);--paper:oklch(99.4% .003 250);
+ --ink:oklch(24% .02 255);--ink2:oklch(42% .018 255);--ink3:oklch(58% .014 255);
+ --line:oklch(89% .01 255);--soft:oklch(95% .012 260);
+ --blue:oklch(48% .21 258);--red:oklch(52% .17 27);--redbg:oklch(95.5% .03 27);
+ --amber:oklch(55% .12 70);--amberbg:oklch(95.5% .04 80);
+ --navy:oklch(19% .05 260);--navy2:oklch(26% .06 260);--coral:oklch(70% .17 32);--coralbg:oklch(94% .04 32);
+ --green:oklch(50% .11 155);--greenbg:oklch(95.5% .035 155);
+ --s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:24px;--s6:32px;--s7:48px;--s8:64px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 Literata,Georgia,serif}
+.wrap{max-width:1080px;margin:0 auto;padding:0 var(--s5) var(--s8)}
+
+
+/* Hero — bloco navy Seazone */
+.hero{background:var(--navy);color:oklch(94% .01 260);padding:var(--s5) 0 var(--s7)}
+.hero-inner{max-width:1080px;margin:0 auto;padding:0 var(--s5)}
+.hero .masthead{border-bottom:1px solid oklch(35% .04 260);margin-bottom:var(--s5);padding-bottom:var(--s3)}
+.hero .wordmark{color:var(--paper);letter-spacing:.14em;display:flex;align-items:center;gap:var(--s3)}
+.hero .wordmark span{color:oklch(72% .02 260);letter-spacing:.14em}
+.sz-logo{display:inline-flex;align-items:center;gap:2px;font:700 clamp(22px,3vw,30px)/1 "Bricolage Grotesque",sans-serif;letter-spacing:-.04em;vertical-align:middle;color:currentColor}
+.sz-logo .sz-house{display:inline-block;width:.75em;height:.85em;background:none;position:relative;flex-shrink:0}
+.sz-logo .sz-house svg{width:100%;height:100%;display:block}
+.hero .sz-logo{color:#fff;font-size:30px}
+.instfoot .sz-logo{color:var(--navy);font-size:22px}
+
+.hero .mast-date{color:oklch(72% .02 260)}
+.hero .eyebrow{color:var(--coral);margin-bottom:var(--s3)}
+.hero h1{color:var(--paper);margin:0 0 var(--s5);max-width:20ch}
+.hero .lede{color:oklch(88% .01 260);max-width:66ch}
+.hero .meta{color:oklch(70% .02 260);margin-top:var(--s5)}
+.hero .meta b{color:var(--paper)}
+h1,h2,h3,h4,.k,.eyebrow,.lab,.tag,summary,th{font-family:"Bricolage Grotesque",sans-serif;letter-spacing:-.01em}
+.eyebrow{font:700 12px/1 "Bricolage Grotesque";letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
+h1{font-size:clamp(34px,5vw,54px);line-height:1.04;margin:var(--s3) 0 var(--s5);max-width:20ch;font-weight:700}
+.lede{font-size:19px;max-width:66ch;color:var(--ink)}
+.meta{color:var(--ink3);font-size:14px;margin-top:var(--s4)}
+.nums{margin:calc(-1 * var(--s7)) 0 var(--s7);position:relative;z-index:2;display:flex;flex-direction:column;gap:var(--s3)}
+.nums .feat{background:var(--navy);border-radius:12px;padding:var(--s5) var(--s6);display:flex;align-items:baseline;gap:var(--s5);flex-wrap:wrap;box-shadow:0 4px 24px oklch(20% .05 260 / .12)}
+.nums .feat .k{font-size:56px;font-weight:700;line-height:1;color:var(--blue);font-family:"Bricolage Grotesque";letter-spacing:-.02em}
+.nums .feat span{color:oklch(85% .01 260);font-size:15px;line-height:1.5;flex:1;min-width:280px;max-width:60ch}
+.nums-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:var(--s3)}
+.nums-grid div{background:var(--paper);border-radius:10px;padding:var(--s5) var(--s5) var(--s4);box-shadow:0 2px 12px oklch(20% .05 260 / .06),0 1px 3px oklch(20% .05 260 / .04)}
+.nums-grid .k{font-size:36px;font-weight:700;line-height:1;color:var(--blue);font-family:"Bricolage Grotesque"}
+.nums-grid .k.r{color:var(--coral)}
+.nums-grid span{display:block;color:var(--ink2);font-size:13px;margin-top:var(--s3);line-height:1.5}
+h2{font-size:28px;margin:var(--s8) 0 var(--s4);font-weight:700}
+h3{font-size:21px;margin:var(--s6) 0 var(--s3);font-weight:700;display:flex;gap:var(--s3);align-items:baseline}
+h3 .no{color:var(--coral);font-size:15px;min-width:2ch;font-weight:700}
+h4{font-size:16px;margin:var(--s5) 0 var(--s3);font-weight:700;color:var(--ink2);text-transform:uppercase;letter-spacing:.05em;font-size:12px}
+p{max-width:70ch;margin:0 0 var(--s3)}
+.muted{color:var(--ink2)}
+.area{padding:var(--s6) 0;border-top:2px solid var(--ink)}
+.area-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:var(--s3);margin-bottom:var(--s4)}
+.area-head .who{color:var(--ink3);font-size:14px}
+.prob{padding:var(--s5) 0;border-top:1px solid var(--line)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--s3) var(--s6);margin:var(--s3) 0}
+.lab{font:700 11.5px/1 "Bricolage Grotesque";letter-spacing:.07em;text-transform:uppercase;color:var(--ink3);margin-bottom:var(--s2)}
+.fix{background:var(--soft);border-radius:10px;padding:var(--s3) var(--s4);margin-top:var(--s3);max-width:78ch}
+.fix p:last-child{margin:0}
+.tw{overflow-x:auto;margin:var(--s3) 0}
+table{border-collapse:collapse;width:100%;font-size:14px;background:var(--paper)}
+th{text-align:left;font:700 12px/1.3 "Bricolage Grotesque";color:var(--ink2);padding:var(--s2) var(--s3);border-bottom:1px solid var(--ink3);white-space:nowrap}
+td{padding:var(--s2) var(--s3);border-bottom:1px solid var(--line);vertical-align:top}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+tr:hover td{background:var(--soft)}
+.tag{display:inline-block;font:700 12px/1 "Bricolage Grotesque";padding:5px 8px;border-radius:6px;white-space:nowrap}
+.tag.r{background:var(--redbg);color:var(--red)}
+.tag.o{background:var(--amberbg);color:var(--amber)}
+.tag.g{background:var(--greenbg);color:var(--green)}
+.tag.b{background:oklch(94% .04 258);color:var(--blue)}
+.bad{color:var(--red);font-weight:600}
+.tl{list-style:none;padding:0;margin:var(--s4) 0;display:grid;gap:0}
+.tl li{display:grid;grid-template-columns:92px 1fr;gap:var(--s4);padding:var(--s3) 0;border-bottom:1px solid var(--line)}
+.tl b{font-family:"Bricolage Grotesque";color:var(--blue)}
+code{font-size:13px;background:var(--soft);padding:1px 5px;border-radius:4px}
+a{color:var(--blue)}
+ul{max-width:70ch;padding-left:20px}
+li{margin-bottom:var(--s2)}
+.pcm{display:grid;grid-template-columns:170px 1fr;margin:var(--s3) 0;border-top:1px solid var(--line)}
+.pcm>dt{font:700 12px/1.3 "Bricolage Grotesque";letter-spacing:.07em;text-transform:uppercase;color:var(--ink2);padding:var(--s4) var(--s4) var(--s4) 0;border-bottom:1px solid var(--line)}
+.pcm>dd{margin:0;padding:var(--s4) 0;border-bottom:1px solid var(--line);min-width:0}
+.pcm>dd p:last-child{margin-bottom:0}
+.pcm>dt.mel{color:var(--blue);background:var(--soft);padding-left:var(--s4);border-radius:8px 0 0 8px}
+.pcm>dd.mel{background:var(--soft);padding:var(--s4) var(--s5);border-radius:0 8px 8px 0}
+.pattern{background:var(--navy);color:var(--paper);padding:var(--s6) var(--s7);border-radius:12px;margin:var(--s6) 0;max-width:none}
+.pattern h2{color:var(--paper);margin-top:0}
+.pattern p{color:oklch(88% .01 260);max-width:70ch}
+.pattern .k{color:var(--coral);font-family:"Bricolage Grotesque";font-weight:700}
+.ask{background:var(--paper);border:2px solid var(--ink);border-radius:12px;padding:var(--s6);margin:var(--s7) 0}
+.ask ol{padding-left:20px;margin:0} .ask li{margin-bottom:var(--s3)}
+.ask b{font-family:"Bricolage Grotesque"}
+.src{color:var(--ink3);font-size:13px;margin-top:var(--s2)}
+.badge{display:inline-block;font:700 11px/1 "Bricolage Grotesque";padding:4px 7px;border-radius:5px;background:var(--soft);color:var(--ink2);letter-spacing:.05em;text-transform:uppercase;margin-right:var(--s2)}
+.pending{background:oklch(94% .03 80);color:var(--amber);border:1px dashed var(--amber);padding:var(--s4);border-radius:8px;margin:var(--s3) 0;font-family:"Bricolage Grotesque";font-size:14px;color:var(--amber)}
+@media (max-width:640px){.pcm{grid-template-columns:1fr} .pcm>dt{border-bottom:0;padding-bottom:0} .pcm>dt.mel,.pcm>dd.mel{border-radius:0} .wrap{padding:var(--s6) var(--s4)} .tl li{grid-template-columns:1fr;gap:var(--s1)}}
+.tabs{display:flex;gap:var(--s1);margin:var(--s7) 0 0;border-bottom:2px solid var(--ink);flex-wrap:wrap}
+.tab-btn{font:700 14px/1.2 "Bricolage Grotesque";background:transparent;border:0;padding:var(--s4) var(--s5);cursor:pointer;color:var(--ink3);border-bottom:3px solid transparent;margin-bottom:-2px;letter-spacing:.01em;transition:color .15s,border-color .15s}
+.tab-btn:hover{color:var(--ink)}
+.tab-btn.active{color:var(--ink);border-bottom-color:var(--blue)}
+.tab-btn .count{display:inline-block;font-size:11px;color:var(--ink3);background:var(--soft);padding:2px 6px;border-radius:8px;margin-left:var(--s2);font-weight:500}
+.tab-btn.active .count{background:oklch(94% .04 258);color:var(--blue)}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+.tab-panel .area{border-top:0;padding-top:var(--s5)}
+.subgroup{margin:var(--s6) 0 0;padding:var(--s4) var(--s5);background:var(--soft);border-left:4px solid var(--blue);border-radius:0 8px 8px 0}
+.subgroup h3{margin:0;font-size:22px;color:var(--ink);display:block}
+.subgroup p{margin:var(--s2) 0 0;color:var(--ink2);font-size:14px;max-width:70ch}
+
+/* Horizontal timeline */
+.htl{margin:var(--s5) 0 var(--s7);overflow-x:auto;padding-bottom:var(--s3)}
+.htl-inner{display:flex;min-width:max-content;position:relative;padding:0;height:340px}
+.htl-inner::before{content:"";position:absolute;left:0;right:0;top:50%;height:2px;background:var(--ink);z-index:1}
+.htl-event{width:170px;flex-shrink:0;height:100%;position:relative;display:flex;align-items:center;justify-content:center}
+.htl-dot{width:14px;height:14px;background:var(--coral);border-radius:50%;border:3px solid var(--paper);box-shadow:0 0 0 2px var(--coral);position:relative;z-index:3}
+.htl-connector{position:absolute;left:50%;width:2px;background:var(--ink);height:28px;transform:translateX(-50%);z-index:2}
+.htl-card{position:absolute;left:50%;transform:translateX(-50%);width:150px;padding:var(--s3);border-radius:6px;font:400 12.5px/1.4 Literata,Georgia,serif;z-index:2;background:var(--coralbg);color:oklch(45% .16 32);border:1px solid oklch(85% .07 32)}
+.htl-card.neutral{background:var(--soft);color:var(--ink);border-color:var(--line)}
+.htl-card b{font-family:"Bricolage Grotesque";display:block;margin-bottom:4px;font-size:13px;font-weight:700;letter-spacing:.02em}
+.htl-event.above .htl-card{bottom:calc(50% + 30px)}
+.htl-event.above .htl-connector{bottom:50%}
+.htl-event.below .htl-card{top:calc(50% + 30px)}
+.htl-event.below .htl-connector{top:50%}
+.htl-legend{display:flex;gap:var(--s4);margin-bottom:var(--s3);font-size:12px;color:var(--ink3);font-family:"Bricolage Grotesque";text-transform:uppercase;letter-spacing:.05em}
+.htl-legend span{display:flex;align-items:center;gap:6px}
+.htl-legend .sw{width:12px;height:12px;border-radius:3px;display:inline-block}
+.htl-legend .sw.r{background:var(--redbg);border:1px solid oklch(88% .06 27)}
+.htl-legend .sw.n{background:var(--soft);border:1px solid var(--line)}
+
+/* Cabeçalho institucional */
+.masthead{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:var(--s3);border-bottom:1px solid var(--line);margin-bottom:var(--s6)}
+.wordmark{font:700 14px/1 "Bricolage Grotesque";letter-spacing:.18em;color:var(--blue);text-transform:uppercase}
+.wordmark span{color:var(--ink2);font-weight:500;letter-spacing:.12em;margin-left:var(--s2)}
+.mast-date{font:500 13px/1 "Bricolage Grotesque";color:var(--ink3);letter-spacing:.06em;text-transform:uppercase}
+
+/* Justificação editorial */
+.lede,.pattern p,.pcm > dd > p,p.src{text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+
+/* Rodapé institucional */
+.instfoot{margin-top:var(--s8);padding-top:var(--s5);border-top:2px solid var(--ink);display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:var(--s4)}
+.instfoot .wm{font:700 14px/1.4 "Bricolage Grotesque";letter-spacing:.14em;color:var(--blue);text-transform:uppercase}
+.instfoot .wm span{display:block;color:var(--ink2);font-weight:500;letter-spacing:.08em;font-size:12px;margin-top:4px}
+.instfoot .who{font-size:13px;color:var(--ink3);text-align:right;line-height:1.6;font-family:"Bricolage Grotesque"}
+.instfoot .who b{color:var(--ink);font-weight:700;font-size:14px;display:block}
+
+/* Quadro consolidado — árvore */
+.qc{margin:var(--s4) 0 var(--s7);border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--paper)}
+.qc-area{border-bottom:1px solid var(--line)}
+.qc-area:last-child{border-bottom:0}
+.qc-area > summary{list-style:none;cursor:pointer;padding:var(--s4) var(--s5);background:var(--soft);font:700 20px/1.2 "Bricolage Grotesque";color:var(--ink);display:flex;justify-content:space-between;align-items:center;user-select:none;transition:background .15s}
+.qc-area > summary:hover{background:oklch(93% .01 255)}
+.qc-area > summary::-webkit-details-marker{display:none}
+.qc-area > summary::before{content:"▶";display:inline-block;font-size:11px;color:var(--blue);margin-right:var(--s3);transition:transform .2s;transform-origin:center}
+.qc-area[open] > summary::before{transform:rotate(90deg)}
+.qc-count{font:500 13px/1 "Bricolage Grotesque";color:var(--ink3);letter-spacing:.05em;text-transform:uppercase}
+.qc-sub{border-top:1px solid var(--line)}
+.qc-sub:first-of-type{border-top:0}
+.qc-sub > summary{list-style:none;cursor:pointer;padding:var(--s3) var(--s5) var(--s3) calc(var(--s5) + var(--s5));font:600 15px/1.2 "Bricolage Grotesque";color:var(--ink2);display:flex;justify-content:space-between;align-items:center;user-select:none;letter-spacing:.02em}
+.qc-sub > summary::-webkit-details-marker{display:none}
+.qc-sub > summary::before{content:"▶";display:inline-block;font-size:9px;color:var(--ink3);margin-right:var(--s2);transition:transform .2s}
+.qc-sub[open] > summary::before{transform:rotate(90deg)}
+.qc-sub > summary:hover{background:var(--soft);color:var(--ink)}
+.qc-sub > summary span:last-child{font-size:12px;color:var(--ink3);font-weight:500}
+.qc-probs{list-style:none;padding:0;margin:0;background:var(--paper)}
+.qc-probs li{display:grid;grid-template-columns:auto 1fr auto auto;gap:var(--s3) var(--s4);align-items:center;padding:var(--s3) var(--s5) var(--s3) calc(var(--s5) + var(--s6));border-top:1px solid var(--line);font-size:14px}
+.qc-probs li:first-child{border-top:0}
+.qc-probs .num{font:700 12px/1 "Bricolage Grotesque";color:var(--blue);min-width:20px}
+.qc-probs a{color:var(--ink);text-decoration:none;font-weight:500;transition:color .15s}
+.qc-probs a:hover{color:var(--blue);text-decoration:underline;text-underline-offset:3px}
+.qc-probs .qc-size{font:400 13px/1.3 Literata,serif;color:var(--ink3);text-align:right;min-width:180px}
+.qc-probs li:hover{background:var(--soft)}
+@media (max-width:760px){.qc-probs li{grid-template-columns:auto 1fr;gap:var(--s2)} .qc-probs .qc-size{grid-column:2;text-align:left} .qc-probs .tag{grid-column:2;justify-self:start}}
+
+/* Highlight ao chegar num problema via âncora */
+.prob.hl{background:var(--coralbg);transition:background 1.5s ease-out}
+
+/* Blocos de problema colapsáveis */
+.prob > h3{cursor:pointer;user-select:none;transition:color .15s;position:relative;padding-right:calc(var(--s5) + var(--s2))}
+.prob > h3:hover{color:var(--blue)}
+.prob > h3::after{content:"";position:absolute;right:2px;top:50%;width:9px;height:9px;border-right:2px solid var(--ink3);border-bottom:2px solid var(--ink3);transform:translateY(-70%) rotate(45deg);transition:transform .2s ease-out}
+.prob.collapsed > h3::after{transform:translateY(-30%) rotate(-45deg)}
+.prob.collapsed > *:not(h3){display:none}
+.prob.collapsed{padding-bottom:var(--s3);padding-top:var(--s3)}
+
+.qc-links{border-top:1px solid var(--line);background:var(--paper)}
+.qc-links > summary{list-style:none;cursor:pointer;padding:var(--s3) var(--s5) var(--s3) calc(var(--s5) + var(--s6));font:500 14px/1.3 "Bricolage Grotesque";color:var(--ink2);display:flex;justify-content:space-between;align-items:center;gap:var(--s3);user-select:none}
+.qc-links > summary::-webkit-details-marker{display:none}
+.qc-links > summary::before{content:"▶";display:inline-block;font-size:8px;color:var(--ink3);margin-right:var(--s2);transition:transform .2s}
+.qc-links[open] > summary::before{transform:rotate(90deg)}
+.qc-links > summary:hover{background:var(--soft);color:var(--ink)}
+.qc-links > summary span:last-child{margin-left:auto;font-size:12px;color:var(--ink3)}
+.qc-codes{display:flex;flex-wrap:wrap;gap:6px;padding:var(--s2) var(--s5) var(--s4) calc(var(--s5) + var(--s6))}
+.qc-codes a{font:500 12px/1 "Bricolage Grotesque";letter-spacing:.03em;color:var(--ink2);text-decoration:none;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--soft);transition:color .15s,border-color .15s}
+.qc-codes a:hover{color:var(--blue);border-color:var(--blue)}
+@media (max-width:760px){.qc-links > summary,.qc-codes{padding-left:var(--s5)}}
+.pcm .qc-links{border:1px solid var(--line);border-radius:6px;margin-top:var(--s3)}
+.pcm .qc-links > summary{padding:var(--s2) var(--s3)}
+.pcm .qc-links .tw{padding:0 var(--s3) var(--s3)}
+.qc-links > .tw{padding:0 var(--s5) var(--s4) calc(var(--s5) + var(--s6))}
+.qc-links td{font-size:13px}
+.qc-links tr.caso-2024 td{background:var(--coralbg)}
+.qc-links td a{color:var(--ink);font-weight:600;text-decoration:none}
+.qc-links td a:hover{color:var(--blue)}
+@media (max-width:760px){.qc-links > .tw{padding-left:var(--s5);overflow-x:auto}}
+</style></head><body>
+
+<section class="hero">
+ <div class="hero-inner">
+  <div class="masthead">
+   <div class="wordmark"><span class="sz-logo" role="img" aria-label="Seazone">sea<span class="sz-house"><svg viewBox="0 0 22 24" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="0" width="2.5" height="8" rx=".8" fill="#ff6b5c"/><path d="M1 11 L11 2 L21 11 L21 22 Q21 23 20 23 L2 23 Q1 23 1 22 Z" fill="#ff6b5c"/></svg></span>zone</span><span>· Backoffice Franquias</span></div>
+   <div class="mast-date">Documento interno · 28/09/2026</div>
+  </div>
+  <div class="eyebrow">Para Carol Espindola · Diretora de Franquias</div>
+  <h1>O que a Implantação está causando no BackOffice</h1>
+  <p class="lede">Consolidado dos impactos gerados pela área de Implantação nas quatro frentes do BackOffice, no período de <b>15/06 a 25/09/2026</b>.</p>
+  <p class="lede">O padrão se repete nas quatro frentes: <b>ferramentas e automações são colocadas em produção sem a devida integração ao processo operacional</b>, fazendo com que o BackOffice absorva o retrabalho e a perda de fornecedores decorrentes dessas implantações.</p>
+  <p class="lede">Cada frente apresenta o levantamento realizado pelo respectivo coordenador, com os principais impactos identificados. <b>O material completo, incluindo as evidências, está disponível no link ao final de cada bloco.</b></p>
+ </div>
+</section>
+
+<main class="wrap">
+
+<div class="nums">
+ <div class="feat">
+  <div class="k">R$ 40,1 mil</div>
+  <span>de impacto financeiro identificado só em setembro (repasse dobrado + comissão acima do contrato + frete errado)</span>
+ </div>
+ <div class="nums-grid">
+  <div><div class="k">157</div><span>imóveis hoje sem operação vinculada — comissão sai errada</span></div>
+  <div><div class="k">78</div><span>imóveis com quartos e travesseiros zerados por cima da vistoria</span></div>
+  <div><div class="k">85</div><span>cards de ocorrência abertos sem evidência (0 puderam ser aplicados)</span></div>
+  <div><div class="k">27</div><span>dias até a liderança saber do conflito Maraú (perda de fornecedora exclusiva)</span></div>
+  <div><div class="k">10</div><span>fotógrafos parados no funil de contratação (até 153 dias)</span></div>
+  <div><div class="k">1</div><span>de 73 proprietários cadastrados chegou a comprar na Lojinha</span></div>
+ </div>
+</div>
+
+<div class="pattern">
+<h2>O padrão que se repete</h2>
+<p>Nas três frentes o desenho é o mesmo: <span class="k">a Implantação recebe uma ferramenta pronta</span> — automação Pipefy→Sapron, Lojinha, agente de itens, artefato de fotógrafo, calculadora de enxoval, automação BizOps de ocorrências — <span class="k">e não integra a ferramenta ao processo operacional</span>. Quando o problema aparece, o BackOffice descobre semanas depois: pela reserva vendida com taxa errada, pelo fornecedor que já pediu distrato, pelo relatório de comissão do mês, pela leva de cards de ocorrência que não podem ser aplicados.</p>
+<p>Um agravante: quando <span class="k">a Operação ofereceu construir a automação de ocorrências dentro da régua nova</span>, a oferta foi recusada — e a automação seguiu do lado da Implantação/BizOps, sem a régua. Somam-se a isso <span class="k">handovers ruins</span> (saídas da Evelly em agosto e dos coordenadores em 17/09) e <span class="k">bases desencontradas</span> entre Pipefy, Sapron e o artefato.</p>
+<p>O ponto para a diretoria é este: a discussão não é sobre um erro pontual em um imóvel, é sobre a rotina de entregar ferramenta sem assumir a operação dela — e de recusar apoio quando outra área se oferece para ajudar a fazer certo.</p>
+</div>
+
+<h2>Quando começou</h2>
+<div class="htl-legend">
+ <span><i class="sw n"></i>marco / recorte</span>
+ <span><i class="sw r"></i>problema em produção</span>
+</div>
+<div class="htl">
+ <div class="htl-inner">
+  <div class="htl-event above">
+   <div class="htl-card neutral"><b>15/06</b>Início do recorte de Fornecedores &amp; Compras (Henry).</div>
+   <div class="htl-connector"></div>
+   <div class="htl-dot" style="background:var(--ink);box-shadow:0 0 0 2px var(--ink)"></div>
+  </div>
+  <div class="htl-event below">
+   <div class="htl-dot" style="background:var(--ink);box-shadow:0 0 0 2px var(--ink)"></div>
+   <div class="htl-connector"></div>
+   <div class="htl-card neutral"><b>24/06</b>Início do recorte de Adm/Fin (David).</div>
+  </div>
+  <div class="htl-event above">
+   <div class="htl-card"><b>15/07</b>Automação Pipefy→Sapron em produção — grava por cima do que já estava certo.</div>
+   <div class="htl-connector"></div>
+   <div class="htl-dot"></div>
+  </div>
+  <div class="htl-event below">
+   <div class="htl-dot"></div>
+   <div class="htl-connector"></div>
+   <div class="htl-card"><b>24/07</b>1º imóvel com quartos zerados e 1ª taxa de R$ 20.</div>
+  </div>
+  <div class="htl-event above">
+   <div class="htl-card neutral"><b>13/08</b>Régua v2 de ocorrências no ar — nova classificação, teto, evidência.</div>
+   <div class="htl-connector"></div>
+   <div class="htl-dot" style="background:var(--ink);box-shadow:0 0 0 2px var(--ink)"></div>
+  </div>
+  <div class="htl-event below">
+   <div class="htl-dot"></div>
+   <div class="htl-connector"></div>
+   <div class="htl-card"><b>26–31/08</b>27 cards BizOps abertos com régua antiga, sem evidência.</div>
+  </div>
+  <div class="htl-event above">
+   <div class="htl-card"><b>27/08</b>App de vistoria grava direto no Sapron — 2 sistemas no mesmo campo.</div>
+   <div class="htl-connector"></div>
+   <div class="htl-dot"></div>
+  </div>
+  <div class="htl-event below">
+   <div class="htl-dot"></div>
+   <div class="htl-connector"></div>
+   <div class="htl-card"><b>Agosto</b>Pico: 70 zeramentos + 52 taxas de R$ 20. Saída da Evelly.</div>
+  </div>
+  <div class="htl-event above">
+   <div class="htl-card"><b>08–14/09</b>27 repasses de implantação lançados em dobro (R$ 6.300).</div>
+   <div class="htl-connector"></div>
+   <div class="htl-dot"></div>
+  </div>
+  <div class="htl-event below">
+   <div class="htl-dot"></div>
+   <div class="htl-connector"></div>
+   <div class="htl-card"><b>17/09</b>Saída dos coordenadores da Implantação — bases começam a divergir.</div>
+  </div>
+  <div class="htl-event above">
+   <div class="htl-card"><b>22/09</b>Fornecedores é avisado do conflito Maraú — 27 dias depois. Distrato em 24/09.</div>
+   <div class="htl-connector"></div>
+   <div class="htl-dot"></div>
+  </div>
+  <div class="htl-event below">
+   <div class="htl-dot"></div>
+   <div class="htl-connector"></div>
+   <div class="htl-card"><b>23–25/09</b>Nova leva: 58 cards de ocorrência sem evidência (32 + 26).</div>
+  </div>
+  <div class="htl-event above">
+   <div class="htl-card neutral"><b>25/09</b>Data deste consolidado.</div>
+   <div class="htl-connector"></div>
+   <div class="htl-dot" style="background:var(--ink);box-shadow:0 0 0 2px var(--ink)"></div>
+  </div>
+ </div>
+</div>
+
+<h2>Quadro geral consolidado</h2>
+<p class="muted" style="font-size:14px;margin-top:calc(var(--s5) * -1);margin-bottom:var(--s4)">Clique em uma área para retrair · clique em um problema para ir até o detalhamento.</p>
+
+<div class="qc">
+ <details class="qc-area" open>
+  <summary>Adm/Financeiro <span class="qc-count">10 problemas</span></summary>
+  <details class="qc-sub">
+   <summary>Despesas <span>3 problemas</span></summary>
+   <ol class="qc-probs">
+    <li><span class="num">1</span><a href="#prob-af-1">Repasse de implantação em dobro</a><span class="qc-size">27 imóveis · R$ 6.300</span><span class="tag o">Adm/Fin cancelando</span></li>
+    <li><span class="num">2</span><a href="#prob-af-2">Conta, operação e comissão sobrescritas</a><span class="qc-size">15 casos</span><span class="tag o">a conferir</span></li>
+    <li><span class="num">3</span><a href="#prob-af-3">Imóvel entra sem vínculo com a operação</a><span class="qc-size">157 imóveis · R$ 33 mil/mês</span><span class="tag o">em conversa com tech</span></li>
+   </ol>
+  </details>
+  <details class="qc-sub">
+   <summary>Taxa de limpeza <span>7 problemas</span></summary>
+   <ol class="qc-probs">
+    <li><span class="num">4</span><a href="#prob-af-4">Taxa de limpeza de R$ 20 gravada pela automação</a><span class="qc-size">60 gravações · 55 imóveis</span><span class="tag g">sem caso desde 15/09</span></li>
+    <li><span class="num">5</span><a href="#prob-af-5">Automação grava a taxa por cima da vistoria</a><span class="qc-size">77 imóveis</span><span class="tag g">sem caso desde 19/09</span></li>
+    <li><span class="num">6</span><a href="#prob-af-6">Quartos e travesseiros zerados</a><span class="qc-size">78 imóveis</span><span class="tag r">defeito no código</span></li>
+    <li><span class="num">7</span><a href="#prob-af-7">Capacidade e banheiro zerados pela automação</a><span class="qc-size">4 imóveis</span><span class="tag o">a conferir</span></li>
+    <li><span class="num">8</span><a href="#prob-af-8">Travesseiro fora da regra</a><span class="qc-size">6 imóveis</span><span class="tag r">aberto</span></li>
+    <li><span class="num">9</span><a href="#prob-af-9">Capacidade maior do que as camas comportam</a><span class="qc-size">5 imóveis</span><span class="tag r">aberto</span></li>
+    <li><span class="num">10</span><a href="#prob-af-10">Taxa de limpeza errada na ativação (PUA0130)</a><span class="qc-size">1 imóvel · 3 reservas · R$ 210</span><span class="tag o">ajuste solicitado</span></li>
+   </ol>
+  </details>
+ </details>
+
+ <details class="qc-area" open>
+  <summary>Fornecedores &amp; Compras <span class="qc-count">8 problemas</span></summary>
+  <details class="qc-sub">
+   <summary>Loja Seazone <span>2 problemas</span></summary>
+   <ol class="qc-probs">
+    <li><span class="num">1</span><a href="#prob-fc-1">Link da Lojinha não é enviado ao proprietário</a><span class="qc-size">73 cadastros · 1 compra</span><span class="tag r">alta</span></li>
+    <li><span class="num">2</span><a href="#prob-fc-2">Agente de itens faltantes roda sem uso</a><span class="qc-size">101 listas · 4× ao dia</span><span class="tag o">média</span></li>
+   </ol>
+   <details class="qc-links">
+    <summary>Imóveis com link da lista já gerado <span>250 imóveis</span></summary>
+    <div class="qc-codes"><a href="https://lojaitens.seazone.com.br/lista/a144e1b38970" target="_blank" rel="noopener">ZCV2405</a><a href="https://lojaitens.seazone.com.br/lista/a554df2705b0" target="_blank" rel="noopener">CFT0204</a><a href="https://lojaitens.seazone.com.br/lista/6e67d648fc44" target="_blank" rel="noopener">SBB0003</a><a href="https://lojaitens.seazone.com.br/lista/327276a877c2" target="_blank" rel="noopener">BIP50003</a><a href="https://lojaitens.seazone.com.br/lista/89f07e799d79" target="_blank" rel="noopener">VFO0002</a><a href="https://lojaitens.seazone.com.br/lista/7f6242a04c71" target="_blank" rel="noopener">VEM0201</a><a href="https://lojaitens.seazone.com.br/lista/f20bfc535eff" target="_blank" rel="noopener">MNH1001</a><a href="https://lojaitens.seazone.com.br/lista/71f39d6a0ea3" target="_blank" rel="noopener">JJS0865</a><a href="https://lojaitens.seazone.com.br/lista/9c3de499d39a" target="_blank" rel="noopener">VDP0015</a><a href="https://lojaitens.seazone.com.br/lista/cb6416d328e9" target="_blank" rel="noopener">ECE0504</a><a href="https://lojaitens.seazone.com.br/lista/c6fdbe8cb4ee" target="_blank" rel="noopener">SAL0004</a><a href="https://lojaitens.seazone.com.br/lista/83f35a5d51e6" target="_blank" rel="noopener">HMR0613</a><a href="https://lojaitens.seazone.com.br/lista/895893a81bb0" target="_blank" rel="noopener">HMR0504</a><a href="https://lojaitens.seazone.com.br/lista/b8d4e7ead345" target="_blank" rel="noopener">OBR0503</a><a href="https://lojaitens.seazone.com.br/lista/405e01c48b0b" target="_blank" rel="noopener">POSC0124</a><a href="https://lojaitens.seazone.com.br/lista/22c7e16f9874" target="_blank" rel="noopener">ROH0401</a><a href="https://lojaitens.seazone.com.br/lista/ed644447fb55" target="_blank" rel="noopener">DLO0405</a><a href="https://lojaitens.seazone.com.br/lista/ae3355ac16fd" target="_blank" rel="noopener">LAV0505</a><a href="https://lojaitens.seazone.com.br/lista/bb75e9fb4449" target="_blank" rel="noopener">VCO0001</a><a href="https://lojaitens.seazone.com.br/lista/ce0554e17d60" target="_blank" rel="noopener">BLB0107</a><a href="https://lojaitens.seazone.com.br/lista/8d067c1d2f46" target="_blank" rel="noopener">SAP0257</a><a href="https://lojaitens.seazone.com.br/lista/159dece05787" target="_blank" rel="noopener">LMI0147</a><a href="https://lojaitens.seazone.com.br/lista/b320ff2e12da" target="_blank" rel="noopener">NSD0008</a><a href="https://lojaitens.seazone.com.br/lista/df7416697595" target="_blank" rel="noopener">VEM1768</a><a href="https://lojaitens.seazone.com.br/lista/398596ba6ae6" target="_blank" rel="noopener">APE0290</a><a href="https://lojaitens.seazone.com.br/lista/87eca66f86e8" target="_blank" rel="noopener">CFR0203</a><a href="https://lojaitens.seazone.com.br/lista/45466df2a390" target="_blank" rel="noopener">CNM0002</a><a href="https://lojaitens.seazone.com.br/lista/64e48cbc9c0b" target="_blank" rel="noopener">REF0601</a><a href="https://lojaitens.seazone.com.br/lista/401e3fe174c4" target="_blank" rel="noopener">HOA0608</a><a href="https://lojaitens.seazone.com.br/lista/0969f336ec75" target="_blank" rel="noopener">RHLB0103</a><a href="https://lojaitens.seazone.com.br/lista/abe3171bbe94" target="_blank" rel="noopener">PCF0301</a><a href="https://lojaitens.seazone.com.br/lista/94583bbd9a63" target="_blank" rel="noopener">DGL1405</a><a href="https://lojaitens.seazone.com.br/lista/75ed25367f6f" target="_blank" rel="noopener">LIS0015</a><a href="https://lojaitens.seazone.com.br/lista/ff50549f8ffd" target="_blank" rel="noopener">LIS0012</a><a href="https://lojaitens.seazone.com.br/lista/ab6c6ae65b1a" target="_blank" rel="noopener">LGO0001</a><a href="https://lojaitens.seazone.com.br/lista/c939bbe068a1" target="_blank" rel="noopener">BDT0706</a><a href="https://lojaitens.seazone.com.br/lista/4b454b6705d0" target="_blank" rel="noopener">PIH0003</a><a href="https://lojaitens.seazone.com.br/lista/d1da7185c268" target="_blank" rel="noopener">PIH0001</a><a href="https://lojaitens.seazone.com.br/lista/5c3952acc510" target="_blank" rel="noopener">PIH0002</a><a href="https://lojaitens.seazone.com.br/lista/106f48839548" target="_blank" rel="noopener">OAZ0514</a><a href="https://lojaitens.seazone.com.br/lista/a42cafc3df33" target="_blank" rel="noopener">SMT0610</a><a href="https://lojaitens.seazone.com.br/lista/e02c44a6c8a1" target="_blank" rel="noopener">CLB0027</a><a href="https://lojaitens.seazone.com.br/lista/6c2466fb699e" target="_blank" rel="noopener">PJA0000</a><a href="https://lojaitens.seazone.com.br/lista/8376c1cd53ef" target="_blank" rel="noopener">IRU0015</a><a href="https://lojaitens.seazone.com.br/lista/80a4674d0fdb" target="_blank" rel="noopener">RBV0301</a><a href="https://lojaitens.seazone.com.br/lista/2f47dea87210" target="_blank" rel="noopener">CAJ0002</a><a href="https://lojaitens.seazone.com.br/lista/c45ffea5aead" target="_blank" rel="noopener">VMH0202</a><a href="https://lojaitens.seazone.com.br/lista/2a9c4c83519f" target="_blank" rel="noopener">VJL0004</a><a href="https://lojaitens.seazone.com.br/lista/c9390830f9a9" target="_blank" rel="noopener">ABC0501</a><a href="https://lojaitens.seazone.com.br/lista/0016f3c133c6" target="_blank" rel="noopener">PSO1010</a><a href="https://lojaitens.seazone.com.br/lista/3040ebada48b" target="_blank" rel="noopener">CVMB0008</a><a href="https://lojaitens.seazone.com.br/lista/6c704a71001b" target="_blank" rel="noopener">VHE0510</a><a href="https://lojaitens.seazone.com.br/lista/66a8ca5a8235" target="_blank" rel="noopener">ENO0201</a><a href="https://lojaitens.seazone.com.br/lista/fde871115c6d" target="_blank" rel="noopener">VOS0006</a><a href="https://lojaitens.seazone.com.br/lista/69f1d7792b8b" target="_blank" rel="noopener">EVF0609</a><a href="https://lojaitens.seazone.com.br/lista/d76e37be1b1b" target="_blank" rel="noopener">QAM0402</a><a href="https://lojaitens.seazone.com.br/lista/9ddff3fddddb" target="_blank" rel="noopener">JGO0302</a><a href="https://lojaitens.seazone.com.br/lista/c68a6423600c" target="_blank" rel="noopener">VEO1603</a><a href="https://lojaitens.seazone.com.br/lista/65f4ae15be06" target="_blank" rel="noopener">SLG0011</a><a href="https://lojaitens.seazone.com.br/lista/0351a5562b50" target="_blank" rel="noopener">NOJ0311</a><a href="https://lojaitens.seazone.com.br/lista/b25d6545c985" target="_blank" rel="noopener">PCB0089</a><a href="https://lojaitens.seazone.com.br/lista/ae5d10faac7c" target="_blank" rel="noopener">AZR1406</a><a href="https://lojaitens.seazone.com.br/lista/43b8e8bdc5ab" target="_blank" rel="noopener">RYE0302</a><a href="https://lojaitens.seazone.com.br/lista/f1d45319f8a6" target="_blank" rel="noopener">ASP1003</a><a href="https://lojaitens.seazone.com.br/lista/2cfbb5cb3729" target="_blank" rel="noopener">NIE1303</a><a href="https://lojaitens.seazone.com.br/lista/512e13439531" target="_blank" rel="noopener">RBM0305</a><a href="https://lojaitens.seazone.com.br/lista/a0bbd2219a7b" target="_blank" rel="noopener">DSH1702</a><a href="https://lojaitens.seazone.com.br/lista/119c921cf39f" target="_blank" rel="noopener">PIW0001</a><a href="https://lojaitens.seazone.com.br/lista/44318ecbb2d2" target="_blank" rel="noopener">PIW0002</a><a href="https://lojaitens.seazone.com.br/lista/da8318a805c8" target="_blank" rel="noopener">PIW0004</a><a href="https://lojaitens.seazone.com.br/lista/15390f6e5bf9" target="_blank" rel="noopener">PIW0005</a><a href="https://lojaitens.seazone.com.br/lista/f61577c3f885" target="_blank" rel="noopener">TBF0609</a><a href="https://lojaitens.seazone.com.br/lista/67b6c251b0d6" target="_blank" rel="noopener">LIU0604</a><a href="https://lojaitens.seazone.com.br/lista/3033ec5732f6" target="_blank" rel="noopener">VID0001</a><a href="https://lojaitens.seazone.com.br/lista/6b0996e92cf6" target="_blank" rel="noopener">VID0003</a><a href="https://lojaitens.seazone.com.br/lista/c2415fca15b3" target="_blank" rel="noopener">OFA1618</a><a href="https://lojaitens.seazone.com.br/lista/7083e996c484" target="_blank" rel="noopener">GEL0075</a><a href="https://lojaitens.seazone.com.br/lista/8565f1bb9d4f" target="_blank" rel="noopener">AAR0103</a><a href="https://lojaitens.seazone.com.br/lista/ec003f769cf2" target="_blank" rel="noopener">FFS0000</a><a href="https://lojaitens.seazone.com.br/lista/49abb0a0c200" target="_blank" rel="noopener">PUE0607</a><a href="https://lojaitens.seazone.com.br/lista/f267561608c5" target="_blank" rel="noopener">LSR0102</a><a href="https://lojaitens.seazone.com.br/lista/f21bc10a0fab" target="_blank" rel="noopener">BBS0004</a><a href="https://lojaitens.seazone.com.br/lista/97abc8e13780" target="_blank" rel="noopener">SSL0212</a><a href="https://lojaitens.seazone.com.br/lista/8f90ebcb19d4" target="_blank" rel="noopener">MLM0104</a><a href="https://lojaitens.seazone.com.br/lista/ca2f7ef55809" target="_blank" rel="noopener">JVE0222</a><a href="https://lojaitens.seazone.com.br/lista/e8e8d937029b" target="_blank" rel="noopener">SOB0902</a><a href="https://lojaitens.seazone.com.br/lista/cc154d746b65" target="_blank" rel="noopener">MSST1606</a><a href="https://lojaitens.seazone.com.br/lista/7e4b6800adce" target="_blank" rel="noopener">GOP0092</a><a href="https://lojaitens.seazone.com.br/lista/c7a5e88026f1" target="_blank" rel="noopener">CKN0204</a><a href="https://lojaitens.seazone.com.br/lista/d7ea57478134" target="_blank" rel="noopener">ECU0302</a><a href="https://lojaitens.seazone.com.br/lista/02442225ef72" target="_blank" rel="noopener">ERE0406</a><a href="https://lojaitens.seazone.com.br/lista/fd9a07950b05" target="_blank" rel="noopener">SZA0603</a><a href="https://lojaitens.seazone.com.br/lista/4145eaf3b668" target="_blank" rel="noopener">ZCV2204</a><a href="https://lojaitens.seazone.com.br/lista/564b2c84bfdf" target="_blank" rel="noopener">ZCV2705</a><a href="https://lojaitens.seazone.com.br/lista/c3f10e373514" target="_blank" rel="noopener">ZCV806</a><a href="https://lojaitens.seazone.com.br/lista/6d1ca60d8e39" target="_blank" rel="noopener">VLF0607</a><a href="https://lojaitens.seazone.com.br/lista/b132112da3a1" target="_blank" rel="noopener">YAT0804</a><a href="https://lojaitens.seazone.com.br/lista/41a52b251d95" target="_blank" rel="noopener">BAV0302</a><a href="https://lojaitens.seazone.com.br/lista/6ab904700618" target="_blank" rel="noopener">SRM1601</a><a href="https://lojaitens.seazone.com.br/lista/6571d01578a8" target="_blank" rel="noopener">SFA0703</a><a href="https://lojaitens.seazone.com.br/lista/dfe0df2ec953" target="_blank" rel="noopener">BOA0001</a><a href="https://lojaitens.seazone.com.br/lista/c7d6baf53918" target="_blank" rel="noopener">TBM0041</a><a href="https://lojaitens.seazone.com.br/lista/fbdae5b01c8b" target="_blank" rel="noopener">ZCV1008</a><a href="https://lojaitens.seazone.com.br/lista/5d0940957324" target="_blank" rel="noopener">BOA0002</a><a href="https://lojaitens.seazone.com.br/lista/dd344c4231b3" target="_blank" rel="noopener">VCR0206</a><a href="https://lojaitens.seazone.com.br/lista/e46ff3fa5545" target="_blank" rel="noopener">PVZ0485</a><a href="https://lojaitens.seazone.com.br/lista/4df708d12da9" target="_blank" rel="noopener">HAW0201</a><a href="https://lojaitens.seazone.com.br/lista/b347dd252688" target="_blank" rel="noopener">HMR0502</a><a href="https://lojaitens.seazone.com.br/lista/78a2dc565ad8" target="_blank" rel="noopener">DVB0004</a><a href="https://lojaitens.seazone.com.br/lista/16e53db11aa9" target="_blank" rel="noopener">AZS0201</a><a href="https://lojaitens.seazone.com.br/lista/9260a6abb70d" target="_blank" rel="noopener">HPA0201</a><a href="https://lojaitens.seazone.com.br/lista/c465da19d5dc" target="_blank" rel="noopener">SDP0302</a><a href="https://lojaitens.seazone.com.br/lista/b890ce9728d9" target="_blank" rel="noopener">TRR0037</a><a href="https://lojaitens.seazone.com.br/lista/49278bde7dcd" target="_blank" rel="noopener">MOR0101</a><a href="https://lojaitens.seazone.com.br/lista/fadd6deae532" target="_blank" rel="noopener">LBO1009</a><a href="https://lojaitens.seazone.com.br/lista/85ff346dcb6a" target="_blank" rel="noopener">EUB0704</a><a href="https://lojaitens.seazone.com.br/lista/d08bce4ed38c" target="_blank" rel="noopener">SAA0304</a><a href="https://lojaitens.seazone.com.br/lista/7e689ef8e9e9" target="_blank" rel="noopener">EQZ0023</a><a href="https://lojaitens.seazone.com.br/lista/ffb3f72220d5" target="_blank" rel="noopener">VPG0103</a><a href="https://lojaitens.seazone.com.br/lista/24502f157032" target="_blank" rel="noopener">VVM0107</a><a href="https://lojaitens.seazone.com.br/lista/92016ecb3417" target="_blank" rel="noopener">LOX1003</a><a href="https://lojaitens.seazone.com.br/lista/57320220a07c" target="_blank" rel="noopener">RNM0016</a><a href="https://lojaitens.seazone.com.br/lista/639132fb1dc7" target="_blank" rel="noopener">LAV0208</a><a href="https://lojaitens.seazone.com.br/lista/20713c07a96e" target="_blank" rel="noopener">CVB0133</a><a href="https://lojaitens.seazone.com.br/lista/380c6dfa0d0b" target="_blank" rel="noopener">PGO0316</a><a href="https://lojaitens.seazone.com.br/lista/f59e8d6461fa" target="_blank" rel="noopener">JPR0407</a><a href="https://lojaitens.seazone.com.br/lista/f06ff58dbfc8" target="_blank" rel="noopener">VLP0206</a><a href="https://lojaitens.seazone.com.br/lista/fff94c2ab353" target="_blank" rel="noopener">LAH0501</a><a href="https://lojaitens.seazone.com.br/lista/5371f9434fbf" target="_blank" rel="noopener">VID0002</a><a href="https://lojaitens.seazone.com.br/lista/1439ae812bb8" target="_blank" rel="noopener">VID0004</a><a href="https://lojaitens.seazone.com.br/lista/ea71d92c4c73" target="_blank" rel="noopener">HIB0012</a><a href="https://lojaitens.seazone.com.br/lista/70b6e7d69d7a" target="_blank" rel="noopener">MDH0515</a><a href="https://lojaitens.seazone.com.br/lista/026fc48ba3e3" target="_blank" rel="noopener">HCE0413</a><a href="https://lojaitens.seazone.com.br/lista/453e3d5c9236" target="_blank" rel="noopener">RIO0259</a><a href="https://lojaitens.seazone.com.br/lista/c484b283b751" target="_blank" rel="noopener">MTN0307</a><a href="https://lojaitens.seazone.com.br/lista/dee7670fb31a" target="_blank" rel="noopener">CNO1002</a><a href="https://lojaitens.seazone.com.br/lista/b2ccb7404780" target="_blank" rel="noopener">COO0503</a><a href="https://lojaitens.seazone.com.br/lista/9f0cd85171d9" target="_blank" rel="noopener">NRT0000</a><a href="https://lojaitens.seazone.com.br/lista/0f1302544f03" target="_blank" rel="noopener">BAA0902</a><a href="https://lojaitens.seazone.com.br/lista/4c9b83c3aacb" target="_blank" rel="noopener">BMR0012</a><a href="https://lojaitens.seazone.com.br/lista/58a33d01581d" target="_blank" rel="noopener">ETC0107</a><a href="https://lojaitens.seazone.com.br/lista/979143b3bf0e" target="_blank" rel="noopener">FVA0402</a><a href="https://lojaitens.seazone.com.br/lista/660db4af1838" target="_blank" rel="noopener">FFS1010</a><a href="https://lojaitens.seazone.com.br/lista/ce939f3c41e1" target="_blank" rel="noopener">DGU1306</a><a href="https://lojaitens.seazone.com.br/lista/8d1a39513dc6" target="_blank" rel="noopener">UPA1805</a><a href="https://lojaitens.seazone.com.br/lista/49129f3a274c" target="_blank" rel="noopener">HOA0307</a><a href="https://lojaitens.seazone.com.br/lista/7d88ab82e2a8" target="_blank" rel="noopener">MCP1109</a><a href="https://lojaitens.seazone.com.br/lista/ea4f674b6b9b" target="_blank" rel="noopener">COF0802</a><a href="https://lojaitens.seazone.com.br/lista/2b6c0a9c60ec" target="_blank" rel="noopener">EPI0408</a><a href="https://lojaitens.seazone.com.br/lista/5b259c0b1407" target="_blank" rel="noopener">SBB0002</a><a href="https://lojaitens.seazone.com.br/lista/6a01bb1bc0f3" target="_blank" rel="noopener">DOV108</a><a href="https://lojaitens.seazone.com.br/lista/9bfd21becbbc" target="_blank" rel="noopener">LTT0704</a><a href="https://lojaitens.seazone.com.br/lista/47e2c93fa5f0" target="_blank" rel="noopener">TBF0608</a><a href="https://lojaitens.seazone.com.br/lista/fd54e66f60e9" target="_blank" rel="noopener">LAV1501</a><a href="https://lojaitens.seazone.com.br/lista/1cec2a18cb55" target="_blank" rel="noopener">TLO0204</a><a href="https://lojaitens.seazone.com.br/lista/8d5ebefd41b5" target="_blank" rel="noopener">SCU0101</a><a href="https://lojaitens.seazone.com.br/lista/b8bb560560f4" target="_blank" rel="noopener">SGN0000</a><a href="https://lojaitens.seazone.com.br/lista/4b1b102a967a" target="_blank" rel="noopener">VLU0305</a><a href="https://lojaitens.seazone.com.br/lista/072139f384e3" target="_blank" rel="noopener">GRL1102</a><a href="https://lojaitens.seazone.com.br/lista/2c2e156067b1" target="_blank" rel="noopener">ASL0303</a><a href="https://lojaitens.seazone.com.br/lista/1c938c1e44c3" target="_blank" rel="noopener">ACP0821</a><a href="https://lojaitens.seazone.com.br/lista/c82643223b5c" target="_blank" rel="noopener">OJU0208</a><a href="https://lojaitens.seazone.com.br/lista/826eadd51c98" target="_blank" rel="noopener">CSI0303</a><a href="https://lojaitens.seazone.com.br/lista/39bc59226d63" target="_blank" rel="noopener">VNP0302</a><a href="https://lojaitens.seazone.com.br/lista/d8b5e2e6cfc3" target="_blank" rel="noopener">VAD0034</a><a href="https://lojaitens.seazone.com.br/lista/dfd0c65a3fd2" target="_blank" rel="noopener">DIVA1404</a><a href="https://lojaitens.seazone.com.br/lista/5b5043055b27" target="_blank" rel="noopener">VIL0023</a><a href="https://lojaitens.seazone.com.br/lista/b1a8632f1db7" target="_blank" rel="noopener">SVM1310</a><a href="https://lojaitens.seazone.com.br/lista/afd6232d531e" target="_blank" rel="noopener">DSR0040</a><a href="https://lojaitens.seazone.com.br/lista/47a1b34f66b5" target="_blank" rel="noopener">SIG0402</a><a href="https://lojaitens.seazone.com.br/lista/90f9271ce4ea" target="_blank" rel="noopener">LSS0718</a><a href="https://lojaitens.seazone.com.br/lista/e498c84519e5" target="_blank" rel="noopener">LSS0804</a><a href="https://lojaitens.seazone.com.br/lista/3ad8d34a6c0f" target="_blank" rel="noopener">LSS1319</a><a href="https://lojaitens.seazone.com.br/lista/2bcb987bf19e" target="_blank" rel="noopener">PLT0027</a><a href="https://lojaitens.seazone.com.br/lista/f85cf1762a37" target="_blank" rel="noopener">PLT0112</a><a href="https://lojaitens.seazone.com.br/lista/421179e7286b" target="_blank" rel="noopener">PLT0091</a><a href="https://lojaitens.seazone.com.br/lista/fd6ffae022b6" target="_blank" rel="noopener">PLT0098</a><a href="https://lojaitens.seazone.com.br/lista/1689331c0669" target="_blank" rel="noopener">VENB0607</a><a href="https://lojaitens.seazone.com.br/lista/91d4347d22f7" target="_blank" rel="noopener">CCI0209</a><a href="https://lojaitens.seazone.com.br/lista/c0c705e33ef9" target="_blank" rel="noopener">BLB1104</a><a href="https://lojaitens.seazone.com.br/lista/312bfdfac5ce" target="_blank" rel="noopener">SCL0101</a><a href="https://lojaitens.seazone.com.br/lista/eaaab7f20b3d" target="_blank" rel="noopener">SBU0404</a><a href="https://lojaitens.seazone.com.br/lista/ca806eaf8b43" target="_blank" rel="noopener">MET0703</a><a href="https://lojaitens.seazone.com.br/lista/5942c14d5efc" target="_blank" rel="noopener">FRE1008</a><a href="https://lojaitens.seazone.com.br/lista/56693e7a86fc" target="_blank" rel="noopener">VPL0316</a><a href="https://lojaitens.seazone.com.br/lista/c71301647409" target="_blank" rel="noopener">BAN0007</a><a href="https://lojaitens.seazone.com.br/lista/5a18727d6405" target="_blank" rel="noopener">BAN0006</a><a href="https://lojaitens.seazone.com.br/lista/f3a98d33a850" target="_blank" rel="noopener">BAN0003</a><a href="https://lojaitens.seazone.com.br/lista/681a288ba91c" target="_blank" rel="noopener">BAN0004</a><a href="https://lojaitens.seazone.com.br/lista/072b8e385c6b" target="_blank" rel="noopener">BAN0002</a><a href="https://lojaitens.seazone.com.br/lista/186feb4d39e8" target="_blank" rel="noopener">VET0104</a><a href="https://lojaitens.seazone.com.br/lista/1ad1a66ff265" target="_blank" rel="noopener">MSB1503</a><a href="https://lojaitens.seazone.com.br/lista/92f04f249529" target="_blank" rel="noopener">CJG0904</a><a href="https://lojaitens.seazone.com.br/lista/92252b531824" target="_blank" rel="noopener">PEI0601</a><a href="https://lojaitens.seazone.com.br/lista/d682c9700235" target="_blank" rel="noopener">PIM0083</a><a href="https://lojaitens.seazone.com.br/lista/8feb149d6597" target="_blank" rel="noopener">SAA0217</a><a href="https://lojaitens.seazone.com.br/lista/5459669a0947" target="_blank" rel="noopener">CCI0073</a><a href="https://lojaitens.seazone.com.br/lista/560c8e7da20f" target="_blank" rel="noopener">EIL0034</a><a href="https://lojaitens.seazone.com.br/lista/464aa8d926dc" target="_blank" rel="noopener">BIP4003</a><a href="https://lojaitens.seazone.com.br/lista/57f56405ffd0" target="_blank" rel="noopener">HHS0111</a><a href="https://lojaitens.seazone.com.br/lista/a56f9e633e12" target="_blank" rel="noopener">TPA0112</a><a href="https://lojaitens.seazone.com.br/lista/705183234fc0" target="_blank" rel="noopener">CNM0001</a><a href="https://lojaitens.seazone.com.br/lista/798374a79e47" target="_blank" rel="noopener">ORL0903</a><a href="https://lojaitens.seazone.com.br/lista/661bf334f759" target="_blank" rel="noopener">SAA0512</a><a href="https://lojaitens.seazone.com.br/lista/ab014fe33a34" target="_blank" rel="noopener">CAO0601</a><a href="https://lojaitens.seazone.com.br/lista/68127a09ca93" target="_blank" rel="noopener">DAX0101</a><a href="https://lojaitens.seazone.com.br/lista/9641fd40673c" target="_blank" rel="noopener">ITF0027</a><a href="https://lojaitens.seazone.com.br/lista/67d0efecbd89" target="_blank" rel="noopener">SIU1301</a><a href="https://lojaitens.seazone.com.br/lista/c5e5192cd343" target="_blank" rel="noopener">VVH0402</a><a href="https://lojaitens.seazone.com.br/lista/570b1189aa87" target="_blank" rel="noopener">MLE0201</a><a href="https://lojaitens.seazone.com.br/lista/aa360c34d23d" target="_blank" rel="noopener">GVE0115</a><a href="https://lojaitens.seazone.com.br/lista/e7b4f6af768e" target="_blank" rel="noopener">PVN0003</a><a href="https://lojaitens.seazone.com.br/lista/e5f44f7b5c4d" target="_blank" rel="noopener">FRE0504</a><a href="https://lojaitens.seazone.com.br/lista/f1a3629eb9b6" target="_blank" rel="noopener">FPA0609</a><a href="https://lojaitens.seazone.com.br/lista/64fa35833fd6" target="_blank" rel="noopener">JAD0279</a><a href="https://lojaitens.seazone.com.br/lista/328e01fd032d" target="_blank" rel="noopener">GEP0000</a><a href="https://lojaitens.seazone.com.br/lista/8ddf5305f284" target="_blank" rel="noopener">CMZ0616</a><a href="https://lojaitens.seazone.com.br/lista/e33766d80e6f" target="_blank" rel="noopener">MPK0211</a><a href="https://lojaitens.seazone.com.br/lista/46165c004c00" target="_blank" rel="noopener">ASF0138</a><a href="https://lojaitens.seazone.com.br/lista/c0a0d1fa0a7d" target="_blank" rel="noopener">RSO0018</a><a href="https://lojaitens.seazone.com.br/lista/68db28301d3a" target="_blank" rel="noopener">FFS1110</a><a href="https://lojaitens.seazone.com.br/lista/3889bacbde5b" target="_blank" rel="noopener">CAO0404</a><a href="https://lojaitens.seazone.com.br/lista/e8194af17337" target="_blank" rel="noopener">SLE0711</a><a href="https://lojaitens.seazone.com.br/lista/326270c13a9e" target="_blank" rel="noopener">POA0256</a><a href="https://lojaitens.seazone.com.br/lista/a14e11899652" target="_blank" rel="noopener">SMH0306</a><a href="https://lojaitens.seazone.com.br/lista/282e8dd2a8ac" target="_blank" rel="noopener">NXO0412</a><a href="https://lojaitens.seazone.com.br/lista/31f9604fa365" target="_blank" rel="noopener">SNA0105</a><a href="https://lojaitens.seazone.com.br/lista/f85be9e37285" target="_blank" rel="noopener">SNA0205</a><a href="https://lojaitens.seazone.com.br/lista/326e76e3e1c9" target="_blank" rel="noopener">BAT0203</a><a href="https://lojaitens.seazone.com.br/lista/75b62150a3a8" target="_blank" rel="noopener">CUE0345</a><a href="https://lojaitens.seazone.com.br/lista/95a7dce17e4b" target="_blank" rel="noopener">ZCV1402</a><a href="https://lojaitens.seazone.com.br/lista/2be5f8f4946c" target="_blank" rel="noopener">LOX2102</a><a href="https://lojaitens.seazone.com.br/lista/479e32f17d29" target="_blank" rel="noopener">VRI0003</a><a href="https://lojaitens.seazone.com.br/lista/994e0cad107a" target="_blank" rel="noopener">BPM0703</a><a href="https://lojaitens.seazone.com.br/lista/e54edb4f2f24" target="_blank" rel="noopener">GSA0000</a><a href="https://lojaitens.seazone.com.br/lista/ff5190b6d1de" target="_blank" rel="noopener">EBC2605</a><a href="https://lojaitens.seazone.com.br/lista/32aa5bc9f5e8" target="_blank" rel="noopener">RRA0301</a><a href="https://lojaitens.seazone.com.br/lista/235cb422e2d0" target="_blank" rel="noopener">DLF0203</a><a href="https://lojaitens.seazone.com.br/lista/fa36c3c49c3f" target="_blank" rel="noopener">VJF0176</a><a href="https://lojaitens.seazone.com.br/lista/9f5f3a073265" target="_blank" rel="noopener">PCB0071</a><a href="https://lojaitens.seazone.com.br/lista/ad49d9b25fe1" target="_blank" rel="noopener">QDP0009</a><a href="https://lojaitens.seazone.com.br/lista/7883580dcaa0" target="_blank" rel="noopener">BLI1403</a><a href="https://lojaitens.seazone.com.br/lista/c1d8f343c9cf" target="_blank" rel="noopener">HPA0405</a><a href="https://lojaitens.seazone.com.br/lista/879834e2b201" target="_blank" rel="noopener">SOT0103</a><a href="https://lojaitens.seazone.com.br/lista/a190255b412b" target="_blank" rel="noopener">SOT0102</a><a href="https://lojaitens.seazone.com.br/lista/95ce9b0d1851" target="_blank" rel="noopener">PCB0065</a><a href="https://lojaitens.seazone.com.br/lista/e4b408d10707" target="_blank" rel="noopener">BLS1356</a><a href="https://lojaitens.seazone.com.br/lista/92a305920350" target="_blank" rel="noopener">GRLA1403</a><a href="https://lojaitens.seazone.com.br/lista/dd6f1a8e7388" target="_blank" rel="noopener">OBO0004</a><a href="https://lojaitens.seazone.com.br/lista/4af7a8f612f5" target="_blank" rel="noopener">LTP0503</a></div>
+   </details>
+  </details>
+  <details class="qc-sub">
+   <summary>Fotógrafos <span>4 problemas</span></summary>
+   <ol class="qc-probs">
+    <li><span class="num">3</span><a href="#prob-fc-3">Maraú — franquia agendando direto, distrato de fotógrafa exclusiva</a><span class="qc-size">27 dias de silêncio · 2 imóveis parados</span><span class="tag r">alta</span></li>
+    <li><span class="num">4</span><a href="#prob-fc-4">Pirenópolis — cadastro errado e sem prospecção</a><span class="qc-size">região sem fotógrafo por meses</span><span class="tag r">alta</span></li>
+    <li><span class="num">5</span><a href="#prob-fc-5">Fotógrafos parados no funil de contratação</a><span class="qc-size">10 no artefato · até 153 dias</span><span class="tag r">alta</span></li>
+    <li><span class="num">6</span><a href="#prob-fc-6">Handover e perda de conhecimento (Evelly, coords)</a><span class="qc-size">solicitações repetidas · alertas quebrados</span><span class="tag o">média</span></li>
+   </ol>
+  </details>
+  <details class="qc-sub">
+   <summary>Enxoval <span>2 problemas</span></summary>
+   <ol class="qc-probs">
+    <li><span class="num">7</span><a href="#prob-fc-7">Enxoval enviado à franquia errada (SRS1005)</a><span class="qc-size">1.100 km de erro · R$ 592</span><span class="tag o">média</span></li>
+    <li><span class="num">8</span><a href="#prob-fc-8">Agente de adequação gera pedido duplicado ou para imóvel encerrado</a><span class="qc-size">28 casos · 1 finalizado em 2024</span><span class="tag r">alta</span></li>
+   </ol>
+   <details class="qc-links">
+    <summary>Imóveis com pedido duplicado ou estranho <span>27 imóveis · 11 com 2 pedidos</span></summary>
+    <div class="tw"><table><thead><tr><th>Imóvel</th><th>Caso</th><th class="n">Pedidos</th><th>Detalhe</th></tr></thead><tbody><tr class="caso-2024"><td><a href="#prob-fc-8">CVKB0006</a> <span class="tag r">2024</span></td><td>finalizado em 2024 + pedido por cima de recompra</td><td class="n">2</td><td>Finalizado em <b>03/10/2024</b>. O agente gerou o AG-MCVKB0006 (Matinali, R$ 2.798,46) em <b>26/09/2026</b>, quase 2 anos depois, e em 28/09 já havia uma recompra aberta na RM (R$ 2.924,00)</td></tr><tr><td><a href="#prob-fc-8">MEI0202</a></td><td>duplicado pelo agente</td><td class="n">2</td><td>AG-MMEI0202 ×2 (22/08 e 31/08), R$ 3.585,67 cada — <b>os dois em "enviado"</b></td></tr><tr><td><a href="#prob-fc-8">PVN0002</a></td><td>duplicado pelo agente</td><td class="n">2</td><td>AG-MPVN0002 ×2 (21/08 e 03/09), R$ 2.752,63 cada — ag. pagamento</td></tr><tr><td><a href="#prob-fc-8">UST0306</a></td><td>duplicado pelo agente</td><td class="n">2</td><td>AG-MUST0306 ×2 (21/08 e 24/08), R$ 2.061,15 cada — ag. pagamento</td></tr><tr><td><a href="#prob-fc-8">OBO0004</a></td><td>por cima de pedido manual</td><td class="n">2</td><td>P-2055 <b>pago</b> (10/09) + AG-MOBO0004 ag. pagamento (29/09)</td></tr><tr><td><a href="#prob-fc-8">HPA0405</a></td><td>por cima de pedido manual</td><td class="n">2</td><td>P-50008 <b>enviado</b> Matinali (22/09) + AG-RHPA0405 RM ag. pagamento (29/09)</td></tr><tr><td><a href="#prob-fc-8">MBHE0805</a></td><td>por cima de pedido manual</td><td class="n">2</td><td>P-1622 enviado (25/08) + AG-MMBHE0805 enviado (18/09) — <b>enviado duas vezes</b></td></tr><tr><td><a href="#prob-fc-8">POE0322</a></td><td>por cima de pedido manual</td><td class="n">2</td><td>P-2031 ag. pagamento (02/09) + AG-MPOE0322 enviado (08/09)</td></tr><tr><td><a href="#prob-fc-8">VJL0004</a></td><td>por cima de pedido manual</td><td class="n">2</td><td>P-1607 enviado (24/08) + AG-MVJL0004 ag. pagamento (05/09)</td></tr><tr><td><a href="#prob-fc-8">MIL0011</a></td><td>por cima de pedido manual</td><td class="n">2</td><td>P-50004 Matinali + AG-RMIL0011 RM, os dois ag. pagamento</td></tr><tr><td><a href="#prob-fc-8">VEM1768</a></td><td>por cima de pedido manual</td><td class="n">2</td><td>P-1624 (25/08) + AG-MVEM1768 (24/09), os dois ag. pagamento</td></tr><tr><td><a href="#prob-fc-8">CMH0202</a></td><td>gerado depois de finalizar</td><td class="n">1</td><td>Finalizado em 27/02/2025, pedido do agente criado em 22/09/2026</td></tr><tr><td><a href="#prob-fc-8">EKO0008</a></td><td>gerado depois de finalizar</td><td class="n">1</td><td>Finalizado em 25/09/2025, pedido do agente criado em 28/09/2026</td></tr><tr><td><a href="#prob-fc-8">EMD0012</a></td><td>gerado depois de finalizar</td><td class="n">1</td><td>Finalizado em 19/12/2025, pedido do agente criado em 28/09/2026</td></tr><tr><td><a href="#prob-fc-8">BSP0008</a></td><td>gerado depois de finalizar</td><td class="n">1</td><td>Finalizado em 18/02/2026, pedido do agente criado em 20/09/2026</td></tr><tr><td><a href="#prob-fc-8">CAI0211</a></td><td>gerado depois de finalizar</td><td class="n">1</td><td>Finalizado em 08/04/2026, pedido do agente criado em 20/09/2026</td></tr><tr><td><a href="#prob-fc-8">CUMD0002</a></td><td>gerado depois de finalizar</td><td class="n">1</td><td>Finalizado em 26/05/2026, pedido do agente criado em 28/09/2026</td></tr><tr><td><a href="#prob-fc-8">CDD0077</a></td><td>gerado depois de finalizar</td><td class="n">1</td><td>Finalizado em 25/06/2026, pedido do agente criado em 21/09/2026</td></tr><tr><td><a href="#prob-fc-8">CUMD0003</a></td><td>gerado depois de finalizar</td><td class="n">1</td><td>Finalizado em 07/07/2026, pedido do agente criado em 28/09/2026</td></tr><tr><td><a href="#prob-fc-8">ACD0006</a></td><td>gerado depois de finalizar</td><td class="n">1</td><td>Finalizado em 23/07/2026, pedido do agente criado em 19/09/2026</td></tr><tr><td><a href="#prob-fc-8">DAB0001</a></td><td>gerado depois de finalizar</td><td class="n">1</td><td>Finalizado em 23/07/2026, pedido do agente criado em 26/09/2026</td></tr><tr><td><a href="#prob-fc-8">BTR0301</a></td><td>gerado depois de finalizar</td><td class="n">1</td><td>Finalizado em 30/07/2026, pedido do agente criado em 20/09/2026</td></tr><tr><td><a href="#prob-fc-8">CNO0901</a></td><td>gerado depois de finalizar</td><td class="n">1</td><td>Finalizado em 21/08/2026, pedido do agente criado em 14/09/2026</td></tr><tr><td><a href="#prob-fc-8">AST0103</a></td><td>gerado depois de finalizar</td><td class="n">1</td><td>Finalizado em 25/08/2026, pedido do agente criado em 19/09/2026</td></tr><tr><td><a href="#prob-fc-8">UNQ0908</a></td><td>gerado depois de finalizar</td><td class="n">1</td><td>Finalizado em 09/09/2026, pedido do agente criado em 22/09/2026</td></tr><tr><td><a href="#prob-fc-8">ARY0015</a></td><td>gerado depois de finalizar</td><td class="n">1</td><td>Finalizado em 09/09/2026, pedido do agente criado em 14/09/2026</td></tr><tr><td><a href="#prob-fc-8">BLS1355</a></td><td>gerado depois de finalizar</td><td class="n">1</td><td>Finalizado em 15/09/2026, pedido do agente criado em 20/09/2026</td></tr></tbody></table></div>
+   </details>
+  </details>
+ </details>
+
+ <details class="qc-area" open>
+  <summary>Qualidade &amp; Fiscalização <span class="qc-count">7 problemas</span></summary>
+  <details class="qc-sub">
+   <summary>Ocorrências <span>7 problemas</span></summary>
+   <ol class="qc-probs">
+    <li><span class="num">1</span><a href="#prob-qf-1">Recusa em criar a automação de ocorrências dentro da régua</a><span class="qc-size">oferta da Operação recusada</span><span class="tag o">processo</span></li>
+    <li><span class="num">2</span><a href="#prob-qf-2">Automação BizOps fora da régua e sem regulação de tempo</a><span class="qc-size">27 cards · 19 franquias · 26–31/08</span><span class="tag g">corrigida a pedido</span></li>
+    <li><span class="num">3</span><a href="#prob-qf-3">Cards de ocorrência sem evidência</a><span class="qc-size">85 cards em 4 levas · 0 aplicáveis</span><span class="tag r">crítico</span></li>
+    <li><span class="num">4</span><a href="#prob-qf-4">Vistoria sem instrução de correção para a franquia</a><span class="qc-size">todas as franquias · mesmo erro se repete</span><span class="tag g">comunicação ajustada</span></li>
+    <li><span class="num">5</span><a href="#prob-qf-5">Chamados de implantação na Central de Atividades de ocorrência</a><span class="qc-size">fila poluída · encerramento manual</span><span class="tag g">corrigido</span></li>
+    <li><span class="num">6</span><a href="#prob-qf-6">Mensagens de vistoria dentro de chamado de ocorrência</a><span class="qc-size">conversa misturada · prazo perdido</span><span class="tag g">corrigido</span></li>
+    <li><span class="num">7</span><a href="#prob-qf-7">Pedido de MCP próprio em vez de seguir régua</a><span class="qc-size">58 cards sem evidência motivaram ajuste</span><span class="tag g">resolvido via prompt</span></li>
+   </ol>
+  </details>
+ </details>
+</div>
+
+<nav class="tabs" role="tablist">
+ <button class="tab-btn active" data-tab="admfin" role="tab">Adm/Financeiro <span class="count">10</span></button>
+ <button class="tab-btn" data-tab="forn" role="tab">Fornecedores &amp; Compras <span class="count">8</span></button>
+ <button class="tab-btn" data-tab="qual" role="tab">Qualidade &amp; Fiscalização <span class="count">7</span></button>
+</nav>
+
+<div class="tab-panel active" id="tab-admfin" role="tabpanel">
+<!-- ================== ADM/FIN ================== -->
+<section class="area">
+<div class="area-head">
+ <h2 style="margin:0">1 · Adm/Financeiro</h2>
+ <span class="who">Levantado por <b>David Soares</b> · 24/06 a 24/09/2026</span>
+</div>
+<p class="lede">A maior parte não é erro de digitação: é a <b>automação que liga o Pipefy ao Sapron</b>, no ar desde 15/07, gravando por cima de dado que já estava certo. É por isso que os casos têm "dois, três meses" de arraste.</p>
+
+<div class="subgroup">
+ <h3>▍Despesas</h3>
+ <p>Lançamentos financeiros e vínculos que impactam repasse e comissão das franquias.</p>
+</div>
+
+<section class="prob" id="prob-af-1"><h3><span class="no">1</span>Repasse de implantação lançado em dobro</h3>
+<dl class="pcm">
+ <dt>Tamanho</dt><dd><p><b>27 imóveis</b> · <b>R$ 6.300</b> · entre 08 e 14/09.</p></dd>
+ <dt>O que aconteceu</dt><dd><p>Automação do Pipefy lançou <code>Onboarding_Administrative</code> e a analista Ana Carolina lançou o mesmo repasse à mão. As duas despesas ficaram aprovadas.</p></dd>
+ <dt>Onde bate</dt><dd><p>Financeiro. Adm/Fin está cancelando as duplicadas antes do fechamento de setembro.</p></dd>
+ <details class="qc-links"><summary>Códigos dos imóveis <span>27 imóveis</span></summary><div class="qc-codes"><a>BLB0901</a><a>GRB0505</a><a>MVE0204</a><a>GRL0801</a><a>KMA0202</a><a>PTC1201</a><a>MEI0202</a><a>ASO0401</a><a>ARY0015</a><a>HPE1102</a><a>UNE0908</a><a>BAN0001</a><a>FVS0305</a><a>AHA0508</a><a>JML0801</a><a>LAV0302</a><a>RHN0047</a><a>SCJ0004</a><a>SCJ0006</a><a>SOS0304</a><a>VPS0115</a><a>BVM0510</a><a>DVB0029</a><a>RBK0112</a><a>ATF0802</a><a>BEM1402</a><a>ODM0203</a></div></details>
+ <dt class="mel">O que a Implantação precisa fazer</dt><dd class="mel"><p>Definir um único caminho para o repasse — só a automação ou só o lançamento manual. Enquanto houver os dois, o erro volta.</p></dd>
+</dl>
+</section>
+
+<section class="prob" id="prob-af-2"><h3><span class="no">2</span>Conta, operação e comissão sobrescritas</h3>
+<dl class="pcm">
+ <dt>Tamanho</dt><dd><p><b>8 contas bancárias</b> trocadas pela automação (16 a 31/07) + <b>5 operações</b> gravadas pelo app de vistoria (LFH0306, OCN0901, RRC0206, SPN0102, VIL0023) + <b>2 comissões</b> pela vistoria (PQA0011, RUT0001).</p></dd>
+ <dt>O que aconteceu</dt><dd><p>7 das 8 contas trocadas eram de imóveis que mudaram de franquia nos 60 dias anteriores — a rota de dados bancários teve defeito de sobrescrita corrigido em 08/07. As operações e comissões gravadas pela vistoria estão em conferência com o Financeiro.</p></dd>
+ <details class="qc-links"><summary>Conta bancária trocada pela automação <span>8 imóveis</span></summary><div class="qc-codes"><a>PSP0608</a><a>SGR0217</a><a>PCA0403</a><a>UST0502</a><a>USTA0403</a><a>USTA0503</a><a>USTB0403</a><a>USTB0503</a></div></details>
+ <details class="qc-links"><summary>Operação gravada pelo app de vistoria <span>5 imóveis</span></summary><div class="qc-codes"><a>LFH0306</a><a>OCN0901</a><a>RRC0206</a><a>SPN0102</a><a>VIL0023</a></div></details>
+ <details class="qc-links"><summary>Comissão gravada pelo app de vistoria <span>2 imóveis</span></summary><div class="qc-codes"><a>PQA0011</a><a>RUT0001</a></div></details>
+ <dt class="mel">O que a Implantação precisa fazer</dt><dd class="mel"><p>Cada campo do cadastro com um único sistema responsável. Automação só grava quando o card traz valor.</p></dd>
+</dl>
+</section>
+
+<section class="prob" id="prob-af-3"><h3><span class="no">3</span>Imóvel entra sem vínculo com a operação certa</h3>
+<dl class="pcm">
+ <dt>Tamanho</dt><dd><p><b>157 imóveis</b> hoje sem operação (89 ativos + 62 em Onboarding) · impacto medido de <b>R$ 33.233</b> em comissão acima do contrato em setembro/2026.</p></dd>
+ <dt>O que aconteceu</dt><dd><p>A automação grava a franquia do imóvel mas não grava a operação. A comissão vem da operação — sem vínculo, sai o percentual padrão (8%), acima do contrato de várias franquias.</p></dd>
+ <details class="qc-links"><summary>Sem operação hoje · ativos <span>92 imóveis · Sapron em 30/09</span></summary><div class="qc-codes"><a>ACP0821</a><a>AIM0415</a><a>APF0232</a><a>ASO0401</a><a>ATC0206</a><a>BCA1004</a><a>BLB0901</a><a>BVM0510</a><a>CAO0601</a><a>CCI0073</a><a>CLF0143</a><a>CNO0901</a><a>CTB2504</a><a>CUN0102</a><a>DAX0101</a><a>DVB0031</a><a>EDF0907</a><a>EEC0803</a><a>EEP1002</a><a>EID0401</a><a>EKU0765</a><a>EQC0804</a><a>ETI1513</a><a>EVZ1201</a><a>FFS0704</a><a>GDN0620</a><a>GOL1705</a><a>GPS0201</a><a>GRB0505</a><a>JDN1016</a><a>JMF0052</a><a>KUB0506</a><a>LAV0302</a><a>LGR0204</a><a>LLS0277</a><a>MAN0603</a><a>MCP0708</a><a>MEL0303</a><a>MHF1803</a><a>MIN0709</a><a>MOP0605</a><a>MSU0405</a><a>NLV0302</a><a>OCB0501</a><a>OJU0208</a><a>ONE0602</a><a>ONP0000</a><a>ORN0102</a><a>PAB0506</a><a>PAX0005</a><a>PCB0100</a><a>PCB0106</a><a>PNM0302</a><a>PSP0807</a><a>PTC1201</a><a>PVN0001</a><a>PVN0002</a><a>PVN0003</a><a>PVN0004</a><a>PVN0005</a><a>PVN0006</a><a>PVN0007</a><a>PVN0008</a><a>PVN0009</a><a>PVN0010</a><a>PVN0011</a><a>PVN0012</a><a>RBO0413</a><a>RLT0506</a><a>RPC0208</a><a>RPU0801</a><a>RVOA0304</a><a>SAA0217</a><a>SAA0512</a><a>SBB0002</a><a>SCJ0006</a><a>SES0710</a><a>SHC0605</a><a>SKG0503</a><a>SMT0212</a><a>SND0035</a><a>SRS1005</a><a>SSL0114</a><a>STI0104</a><a>TPA0112</a><a>TUB0002</a><a>VAC4303</a><a>VLU0305</a><a>VNP0302</a><a>VVH0402</a><a>VZA0106</a><a>VZA0603</a></div></details>
+ <details class="qc-links"><summary>Sem operação hoje · em Onboarding <span>44 imóveis · Sapron em 30/09 (em 24/09 eram 157 no total)</span></summary><div class="qc-codes"><a>AAH0207</a><a>ABY0000</a><a>AZZ0405</a><a>BDT0706</a><a>BIP0008</a><a>BNS0105</a><a>CBH0501</a><a>CBJD0105</a><a>CEP0223</a><a>CEP0224</a><a>CSI0303</a><a>CZO0503</a><a>DGL1405</a><a>DLF0203</a><a>DVB0004</a><a>EAC0305</a><a>EQZ0023</a><a>EUB0704</a><a>FFS0401</a><a>FFS1008</a><a>GOL0205</a><a>HLT0204</a><a>HOA0608</a><a>HPA0201</a><a>HPA0405</a><a>LAV1201</a><a>LBO1009</a><a>LIS0015</a><a>MOR0101</a><a>MQS0502</a><a>NDO0200</a><a>NSD0008</a><a>QAM0402</a><a>REF0601</a><a>RHLB0103</a><a>SAP0257</a><a>SCH0790</a><a>SDP0302</a><a>SDPA0303</a><a>TUB0001</a><a>TUB0003</a><a>URG0504</a><a>VEM1768</a><a>VPV0201</a></div></details>
+ <dt class="mel">O que a Implantação precisa fazer</dt><dd class="mel"><p>Em desenvolvimento com a tech: o imóvel passa a herdar a operação pelo prefixo do código do empreendimento, sem depender de quem cadastra.</p></dd>
+</dl>
+</section>
+
+<div class="subgroup">
+ <h3>▍Taxa de limpeza</h3>
+ <p>Cadastro de imóvel gravado errado, afetando o valor cobrado do hóspede na taxa de limpeza.</p>
+</div>
+
+<section class="prob" id="prob-af-4"><h3><span class="no">4</span>Taxa de limpeza de R$ 20 gravada pela automação</h3>
+<dl class="pcm">
+ <dt>Tamanho</dt><dd><p><b>60 gravações</b> em <b>55 imóveis</b> · 24/07 a 14/09.</p></dd>
+ <dt>O que aconteceu</dt><dd><p>Era o valor de fallback da automação quando o card não tinha dados. Metade dos casos levou mais de 4 h até alguém mexer. Em 28 deles a correção foi manual, quase sempre pela Caroline Peçanha (Implantação).</p></dd>
+ <dt>Onde bate</dt><dd><p>Taxa de limpeza da reserva. Nenhuma reserva foi vendida com taxa abaixo — a proteção foi manual.</p></dd>
+ <details class="qc-links"><summary>Códigos dos imóveis <span>55 imóveis</span></summary><div class="qc-codes"><a>MBM0156</a><a>VZA0106</a><a>LBO1009</a><a>NSD0008</a><a>SSL0114</a><a>TRA0005</a><a>CNO0901</a><a>FNY1104</a><a>PVN0004</a><a>PVN0003</a><a>VVH0402</a><a>SHC5640</a><a>UNR0908</a><a>ONE0602</a><a>RBV0401</a><a>CTB2504</a><a>VNU0320</a><a>GIE0052</a><a>GRB0505</a><a>QCT0106</a><a>IVG0011</a><a>SBB0002</a><a>RBV0301</a><a>BVA1408</a><a>PVN0002</a><a>PVN0001</a><a>PTC1201</a><a>PVN0006</a><a>PVN0009</a><a>PVN0011</a><a>PVN0012</a><a>FRE0504</a><a>PCF0301</a><a>PTI0505</a><a>SOM1406</a><a>SDM0102</a><a>MBH0805</a><a>FLI0022</a><a>EUB0704</a><a>PVN0005</a><a>MEI0202</a><a>PVN0010</a><a>KMA0202</a><a>CAC0101</a><a>RHN0047</a><a>MPC0201</a><a>SES0710</a><a>MCB0307</a><a>HGR0509</a><a>ABC0501</a><a>JOB0900</a><a>ARY0015</a><a>VID0004</a><a>VID0002</a><a>DSH1702</a></div></details>
+ <dt class="mel">O que a Implantação precisa fazer</dt><dd class="mel"><p>Quando faltar dado, nem a automação nem o app de vistoria devem gravar taxa: deixar em branco e avisar, em vez de gravar um número que parece válido.</p></dd>
+</dl>
+</section>
+
+<section class="prob" id="prob-af-5"><h3><span class="no">5</span>Automação grava a taxa por cima da vistoria</h3>
+<dl class="pcm">
+ <dt>Tamanho</dt><dd><p><b>77 imóveis</b> · 28/08 a 18/09.</p></dd>
+ <dt>O que aconteceu</dt><dd><p>Dois sistemas gravando o mesmo campo — ganha quem grava por último. A vistoria começou a usar a régua em 17/09; antes disso gravava valores como R$ 20 e R$ 80.</p></dd>
+ <details class="qc-links"><summary>Códigos dos imóveis <span>76 imóveis</span></summary><div class="qc-codes"><a>NOJ0311</a><a>PVO0704</a><a>JML0801</a><a>ENO0201</a><a>GBN0306</a><a>ATF0802</a><a>PNN1202</a><a>EID0401</a><a>LAV0505</a><a>ASL0303</a><a>BDT0706</a><a>FPA0609</a><a>VIL0023</a><a>AAR0103</a><a>VPL0316</a><a>SLG0009</a><a>PCB0089</a><a>QST0302</a><a>MPK0211</a><a>VPG0103</a><a>TBF0608</a><a>CNM0002</a><a>CVMB0008</a><a>OIR0006</a><a>PUE0607</a><a>VCD0302</a><a>VVM0107</a><a>VJL0004</a><a>VMH0202</a><a>MSST1606</a><a>GRL1002</a><a>FPE1201</a><a>ASP1003</a><a>EPK0204</a><a>OBO0003</a><a>LTT0704</a><a>JAD0279</a><a>LOE0502</a><a>MLM0104</a><a>DSH1706</a><a>BHC1405</a><a>LSR0102</a><a>LAH0501</a><a>JGO0302</a><a>VID0003</a><a>MUL0203</a><a>TUB0002</a><a>RCB0304</a><a>DIVB1404</a><a>DAX0101</a><a>ECI0506</a><a>ERE0406</a><a>BOR0808</a><a>MOR0101</a><a>JVE0222</a><a>GEL0075</a><a>VIV1303</a><a>MIC0602</a><a>DSH1702</a><a>VDZ0005</a><a>COO0503</a><a>TLO0204</a><a>VAD0034</a><a>CKN0204</a><a>VEM0201</a><a>VHE0510</a><a>SZA0603</a><a>CNG0706</a><a>FCN0007</a><a>SKY2905</a><a>LOX2102</a><a>PCA0402</a><a>DIVA1404</a><a>LOX1003</a><a>VLP0206</a><a>ZCV806</a></div></details>
+ <dt class="mel">O que a Implantação precisa fazer</dt><dd class="mel"><p>A taxa precisa de um único dono. A automação deveria parar de gravar taxa em imóvel que já passou pela vistoria.</p></dd>
+</dl>
+</section>
+
+<section class="prob" id="prob-af-6"><h3><span class="no">6</span>Quartos e travesseiros zerados por cima da vistoria</h3>
+<dl class="pcm">
+ <dt>Tamanho</dt><dd><p><b>78 imóveis</b> · 81 disparos · defeito segue no código.</p></dd>
+ <dt>O que aconteceu</dt><dd><p>Quando o analista marca "Enviar configuração" com o card ainda vazio, a automação grava <b>0 quartos e 0 travesseiros</b>. Exemplo do FFS1110 em 19/09: 11h21 a vistoria grava 1 quarto e 4 travesseiros, 12h03 a automação zera. Sem quarto, o imóvel cai na faixa errada da régua.</p></dd>
+ <details class="qc-links"><summary>Códigos dos imóveis <span>78 imóveis</span></summary><div class="qc-codes"><a>VST043</a><a>MBM0156</a><a>VZA0106</a><a>LBO1009</a><a>NSD0008</a><a>SRU3609</a><a>SSL0114</a><a>PIH0003</a><a>PMI0001</a><a>PIH0001</a><a>PIH0002</a><a>TRA0005</a><a>JDN1016</a><a>PSP0807</a><a>CNO0901</a><a>FNK1104</a><a>HMI0219</a><a>PVN0004</a><a>PVN0003</a><a>VVH0402</a><a>SHC0605</a><a>UNE0908</a><a>ONE0602</a><a>RBV0401</a><a>CTB2504</a><a>VNU0320</a><a>GRB0505</a><a>GIE0052</a><a>QCT0106</a><a>IVG0011</a><a>SBB0002</a><a>RBV0301</a><a>BVA1408</a><a>SMT0610</a><a>PVN0002</a><a>PVN0001</a><a>PTC1201</a><a>PVN0007</a><a>PAY0801</a><a>PVN0006</a><a>PVN0009</a><a>PVN0011</a><a>PVN0012</a><a>FRE0504</a><a>PCF0301</a><a>PTI0505</a><a>SOM1406</a><a>SDM0102</a><a>MBHE0805</a><a>MLE0201</a><a>SAA0304</a><a>FLI0022</a><a>EUB0704</a><a>PVN0005</a><a>MEI0202</a><a>RSO0012</a><a>PVN0010</a><a>KMA0202</a><a>CAC0101</a><a>RHN0047</a><a>KUB0506</a><a>MPC0201</a><a>SES0710</a><a>MCB0307</a><a>HGR0509</a><a>ABC0501</a><a>JOB0900</a><a>CAJ0002</a><a>HMR0613</a><a>ARY0015</a><a>PUE0607</a><a>VID0001</a><a>SOB0902</a><a>DSH1702</a><a>SSL0212</a><a>RSO0018</a><a>FFS1110</a><a>SRM1601</a></div></details>
+ <dt class="mel">O que a Implantação precisa fazer</dt><dd class="mel"><p><b>Flávio Nieland:</b> não mandar quartos e travesseiros quando o card vier vazio. <b>Implantação:</b> só marcar "Enviar configuração" com o card preenchido.</p></dd>
+</dl>
+</section>
+
+<section class="prob" id="prob-af-7"><h3><span class="no">7</span>Capacidade e banheiro zerados pela automação</h3>
+<dl class="pcm">
+ <dt>Tamanho</dt><dd><p><b>4 imóveis</b>: CSI2302 (29/07), VAC4303 (04/08), OAZ0514 (11/08), SAA0214 (03/09).</p></dd>
+ <dt>O que aconteceu</dt><dd><p>Três foram corrigidos. O OAZ0514, em Onboarding, segue sem capacidade e sem banheiro cadastrados.</p></dd>
+ <details class="qc-links"><summary>Códigos dos imóveis <span>4 imóveis</span></summary><div class="qc-codes"><a>CSI2302</a><a>VAC4303</a><a>OAZ0514</a><a>SAA0214</a></div></details>
+ <dt class="mel">O que a Implantação precisa fazer</dt><dd class="mel"><p>Automação não grava campo vazio. Conferir e corrigir o OAZ0514 antes de ativar.</p></dd>
+</dl>
+</section>
+
+<section class="prob" id="prob-af-8"><h3><span class="no">8</span>Travesseiro fora da regra</h3>
+<dl class="pcm">
+ <dt>Tamanho</dt><dd><p><b>6 imóveis</b> — a fronha é cobrada pelo travesseiro do cadastro, então a taxa sai errada.</p></dd>
+ <details class="qc-links"><summary>Códigos dos imóveis <span>6 imóveis</span></summary><div class="qc-codes"><a>MSB1503</a><a>NSD0008</a><a>PIH0001</a><a>HIB0012</a><a>NRT0000</a><a>MRO0485</a></div></details>
+ <dt class="mel">O que a Implantação precisa fazer</dt><dd class="mel"><p>Travesseiro deveria ser calculado a partir das camas, sem digitação. O card do Pipefy precisa ter as mesmas camas do Sapron.</p></dd>
+</dl>
+</section>
+
+<section class="prob" id="prob-af-9"><h3><span class="no">9</span>Capacidade maior do que as camas comportam</h3>
+<dl class="pcm">
+ <dt>Tamanho</dt><dd><p><b>5 imóveis</b>. VDZ0005 tem 10 hóspedes cadastrados para 8 camas — R$ 800/ano de enxoval a menos.</p></dd>
+ <details class="qc-links"><summary>Códigos dos imóveis <span>5 imóveis</span></summary><div class="qc-codes"><a>VDZ0005</a><a>ECU0302</a><a>JGO0302</a><a>MTN0307</a><a>JJS0865</a></div></details>
+ <dt class="mel">O que a Implantação precisa fazer</dt><dd class="mel"><p>O formulário da vistoria deveria recusar capacidade maior do que as camas comportam.</p></dd>
+</dl>
+</section>
+<section class="prob" id="prob-af-10"><h3><span class="no">10</span>Taxa de limpeza errada na ativação (PUA0130)</h3>
+<dl class="pcm">
+ <dt>Tamanho</dt><dd><p><b>1 imóvel</b> · <b>3 reservas</b> vendidas com taxa de limpeza de R$ 115 em vez de R$ 185 · <b>R$ 210</b> a menos (R$ 70 por reserva).</p></dd>
+ <dt>O que aconteceu</dt><dd><p>Em 06/08, ainda em Onboarding, a Implantação gravou R$ 115 como taxa de limpeza do PUA0130. O imóvel saiu da implantação e foi ativado em 12/08 com esse valor. Entre 16 e 18/08, três reservas foram vendidas com a taxa errada. A taxa correta, R$ 185, só entrou no cadastro em 18/08.</p></dd>
+ <dt>Onde bate</dt><dd><p>Financeiro e taxa de limpeza da reserva. Adm/Fin solicitou ajuste financeiro à franquia por erro interno, cobrindo a diferença de R$ 70 em cada uma das três reservas.</p></dd>
+ <details class="qc-links"><summary>Reservas com a taxa errada <span>3 reservas</span></summary><div class="tw"><table><thead><tr><th>Reserva</th><th>Criada em</th><th>Check-in</th><th class="n">Taxa cobrada</th><th class="n">Taxa correta</th><th class="n">Diferença</th></tr></thead><tbody><tr><td><b>869964</b></td><td>16/08</td><td>22/08</td><td class="n">R$ 115</td><td class="n">R$ 185</td><td class="n">R$ 70</td></tr><tr><td><b>870183</b></td><td>17/08</td><td>19/08</td><td class="n">R$ 115</td><td class="n">R$ 185</td><td class="n">R$ 70</td></tr><tr><td><b>871775</b></td><td>18/08</td><td>18/09</td><td class="n">R$ 115</td><td class="n">R$ 185</td><td class="n">R$ 70</td></tr></tbody></table></div></details>
+ <dt class="mel">O que a Implantação precisa fazer</dt><dd class="mel"><p>Conferir a taxa de limpeza contra a régua antes de ativar o imóvel. Taxa gravada à mão na implantação e diferente da régua não deveria sair para venda.</p></dd>
+</dl>
+</section>
+
+
+<p class="src">Fonte completa (com todos os imóveis, IDs de despesa, histórico do Sapron e trechos do código): relatório do David Soares em 24/09/2026.</p>
+</section>
+</div>
+
+<div class="tab-panel" id="tab-forn" role="tabpanel">
+<!-- ================== FORNECEDORES ================== -->
+<section class="area">
+<div class="area-head">
+ <h2 style="margin:0">2 · Fornecedores &amp; Compras</h2>
+ <span class="who">Levantado por <b>Henry Matsumoto</b> · 15/06 a 25/09/2026</span>
+</div>
+<p class="lede">Ferramentas foram entregues prontas (Lojinha, agente de itens, artefato) e não foram integradas ao processo. Fornecedores é notificado semanas depois de conflitos — quando é notificado.</p>
+
+<div class="subgroup">
+ <h3>▍Loja Seazone</h3>
+ <p>Ferramenta de compra pelo proprietário e agente automático de itens faltantes — entregues, mas sem integração ao processo.</p>
+</div>
+
+<section class="prob" id="prob-fc-1"><h3><span class="no">1</span>Link da Lojinha não é enviado ao proprietário</h3>
+<dl class="pcm">
+ <dt>Tamanho</dt><dd><p><b>73</b> proprietários cadastrados · <b>1</b> compra · 2 pedidos cancelados · 3 cliques/dia médios no Mercado Livre. 245 commits desde 25/08 sem retorno comercial.</p></dd>
+ <dt>O que aconteceu</dt><dd><p>Ferramenta ajustada para o proprietário comprar itens diretamente, mas a Implantação não integrou o envio do link à rotina. Em 21/09 o responsável reconheceu no Slack que ainda colocaria o link no processo.</p></dd>
+ <dt class="mel">O que a Implantação precisa fazer</dt><dd class="mel"><p>Definir em que etapa, com qual mensagem e qual responsável envia o link ao proprietário — com data de implementação.</p></dd>
+</dl>
+</section>
+
+<section class="prob" id="prob-fc-2"><h3><span class="no">2</span>Agente de itens faltantes roda sem uso</h3>
+<dl class="pcm">
+ <dt>Tamanho</dt><dd><p><b>101 listas</b> geradas · 4 rodadas/dia desde 23/09 · 17,6 MB e 8 min de processamento por dia sem link chegar a ninguém.</p></dd>
+ <dt class="mel">O que a Implantação precisa fazer</dt><dd class="mel"><p>Reduzir para 1 rodada diária ou disparo por evento até que exista processo definido de envio.</p></dd>
+</dl>
+</section>
+
+<div class="subgroup">
+ <h3>▍Fotógrafos</h3>
+ <p>Pipeline de contratação, cadastros regionais, conflitos de fornecedor exclusivo e perda de conhecimento após saídas.</p>
+</div>
+
+<section class="prob" id="prob-fc-3"><h3><span class="no">3</span>Maraú — franquia agendando direto com a fotógrafa</h3>
+<dl class="pcm">
+ <dt>Tamanho</dt><dd><p><b>27 dias</b> entre o conflito (26/08) e a notificação a Fornecedores (22/09). Distrato da fotógrafa (única profissional da região) em 24/09.</p></dd>
+ <dt>O que aconteceu</dt><dd><p>Implantação transferiu o agendamento para a franquia sem comunicar a liderança e manteve mediação em grupo de WhatsApp por semanas. Resultado: perda total do fornecedor exclusivo, 2 imóveis parados sem foto.</p></dd>
+ <dt class="mel">O que a Implantação precisa fazer</dt><dd class="mel"><p>SLA de notificação a Fornecedores quando qualquer coisa sai do planejado. Mediação em WhatsApp com franquia e fornecedor não substitui aviso à liderança.</p></dd>
+</dl>
+</section>
+
+<section class="prob" id="prob-fc-4"><h3><span class="no">4</span>Pirenópolis — cadastro errado e sem prospecção</h3>
+<dl class="pcm">
+ <dt>Tamanho</dt><dd><p>Região sem fotógrafo profissional por meses. Base Pipefy tinha 2 fotógrafos: um mora em Brasília (não atende), outro sem retorno desde 09/06.</p></dd>
+ <dt>O que aconteceu</dt><dd><p>Fornecedores precisou prospectar por conta própria e cadastrou 2 fotógrafos locais em 23/09. O COO já indicou em 14/09 que a prospecção é do Comercial, não da Implantação.</p></dd>
+ <dt class="mel">O que a Implantação precisa fazer</dt><dd class="mel"><p>Não bloquear cadastro em base própria de fornecedor que não é atualizada. Escalar prospecção pelo canal certo.</p></dd>
+</dl>
+</section>
+
+<section class="prob" id="prob-fc-5"><h3><span class="no">5</span>Fotógrafos parados no funil de contratação</h3>
+<dl class="pcm">
+ <dt>Tamanho</dt><dd><p><b>10 fotógrafos</b> parados no artefato (sem treino, teste ou contrato) + <b>3</b> no Pipefy legado até <b>153 dias</b>. Imbituba já distratou fotógrafo local porque o substituto ficou "travado em treinamento por mais de 2 meses".</p></dd>
+ <dt class="mel">O que a Implantação precisa fazer</dt><dd class="mel"><p>Agilizar pipeline de contratação. Sincronizar bases Pipefy × artefato após turnover. Sinalizações no Slack em 09/07, 28/07 e 14/08 foram ignoradas.</p></dd>
+</dl>
+</section>
+
+<section class="prob" id="prob-fc-6"><h3><span class="no">6</span>Handover e perda de conhecimento</h3>
+<dl class="pcm">
+ <dt>Tamanho</dt><dd><p>Saídas na Implantação (Evelly em agosto, coordenadores em 17/09) geram pedidos repetidos de funcionalidades já existentes e alertas automatizados que deixaram de funcionar.</p></dd>
+ <dt>O que aconteceu</dt><dd><p>Bases divergentes entre Pipefy e artefato: distratos não registrados (Maurício Oliveira, Luiz Felipe), fotógrafos inativos no artefato mas ativos no Pipefy (Rodrigo D'Ávila, Juan Manuel, Igor Strina, Angelo Ouriques), Erick Nascimento duplicado. Bot "GOPs" criado por Fornecedores em 24/09 identificou 6 grupos acima do limite — o alerta original tinha parado de rodar.</p></dd>
+ <dt class="mel">O que a Implantação precisa fazer</dt><dd class="mel"><p>Documentação de transição validada com o novo responsável antes da transferência. Auditoria de bases após cada turnover.</p></dd>
+</dl>
+</section>
+
+<div class="subgroup">
+ <h3>▍Enxoval</h3>
+ <p>Pedidos de enxoval processados pela calculadora e despachados às franquias.</p>
+</div>
+
+<section class="prob" id="prob-fc-7"><h3><span class="no">7</span>Enxoval enviado à franquia errada (SRS1005)</h3>
+<dl class="pcm">
+ <dt>Tamanho</dt><dd><p><b>R$ 592</b> de frete devolução (R$ 520,95 + R$ 71,05 imposto). Enxoval despachado 1.100 km longe do destino (Maceió/AL em vez de Ilhéus/BA).</p></dd>
+ <dt>O que aconteceu</dt><dd><p>Erro humano na calculadora antiga: analista trocou o código do imóvel mas manteve a franquia do pedido anterior. Coordenadora CS Onboarding validou: <i>"foi um erro manual da analista na escolha da franquia"</i>. Custo descontado da comissão do fornecedor (RM).</p></dd>
+ <dt class="mel">O que a Implantação precisa fazer</dt><dd class="mel"><p>A calculadora nova deve travar a franquia pelo código do imóvel — não deixar campo livre para digitação inconsistente.</p></dd>
+</dl>
+</section>
+
+<section class="prob" id="prob-fc-8"><h3><span class="no">8</span>Agente de adequação gera pedido duplicado ou para imóvel encerrado</h3>
+<dl class="pcm">
+ <dt>Tamanho</dt><dd><p><b>3</b> pedidos criados em dobro pelo agente · <b>8</b> imóveis com pedido do agente por cima de pedido manual (3 já pagos ou enviados) · <b>17</b> pedidos gerados depois de o imóvel finalizar (<b>R$ 57.858,48</b>). Caso extremo: <b>CVKB0006</b>, finalizado em <b>03/10/2024</b> e com pedido gerado em 26/09/2026.</p></dd>
+ <dt>O que aconteceu</dt><dd><p>O agente de adequação cria o pedido sem verificar se o imóvel já tem pedido aberto, pago ou enviado, nem se o card está em Finalizado. Resultado: link de pagamento duplicado para o proprietário, risco de enxoval enviado duas vezes (MEI0202, MBHE0805) e pedido de implantação para imóvel encerrado há meses. Levantamento de 29/09/2026 no Jornada Enxoval.</p>
+ <details class="qc-links"><summary>Pedidos duplicados pelo agente <span>3 imóveis</span></summary><div class="tw"><table><thead><tr><th>Imóvel</th><th>Franquia</th><th>Pedidos</th><th>Situação</th></tr></thead><tbody><tr><td><b>MEI0202</b></td><td>Adriano Vidal</td><td>AG-MMEI0202 ×2 (22/08 e 31/08) · R$ 3.585,67 cada</td><td><b>os dois em "enviado"</b> — possível envio em dobro</td></tr><tr><td>PVN0002</td><td>Ana Paula Friedrich</td><td>AG-MPVN0002 ×2 (21/08 e 03/09) · R$ 2.752,63 cada</td><td>os dois em aguardando pagamento</td></tr><tr><td>UST0306</td><td>Jhenyffer Paola</td><td>AG-MUST0306 ×2 (21/08 e 24/08) · R$ 2.061,15 cada</td><td>os dois em aguardando pagamento</td></tr></tbody></table></div></details>
+ <details class="qc-links"><summary>Pedido do agente por cima de pedido manual <span>8 imóveis</span></summary><div class="tw"><table><thead><tr><th>Imóvel</th><th>Pedido manual</th><th>Pedido do agente</th><th>Risco</th></tr></thead><tbody><tr><td><b>OBO0004</b></td><td>P-2055 pagamento confirmado (10/09)</td><td>AG-MOBO0004 ag. pagamento (29/09)</td><td>já pagou e recebe 2º link</td></tr><tr><td><b>HPA0405</b></td><td>P-50008 enviado — Matinali (22/09)</td><td>AG-RHPA0405 ag. pagamento — RM (29/09)</td><td>já recebeu; 2º pedido em outro fornecedor</td></tr><tr><td><b>MBHE0805</b></td><td>P-1622 enviado (25/08)</td><td>AG-MMBHE0805 enviado (18/09)</td><td>enviado duas vezes</td></tr><tr><td>POE0322</td><td>P-2031 ag. pagamento (02/09)</td><td>AG-MPOE0322 enviado (08/09)</td><td>manual ficou aberto</td></tr><tr><td>VJL0004</td><td>P-1607 enviado (24/08)</td><td>AG-MVJL0004 ag. pagamento (05/09)</td><td>já recebeu o enxoval</td></tr><tr><td>MIL0011</td><td>P-50004 ag. pagamento — Matinali (18/09)</td><td>AG-RMIL0011 ag. pagamento — RM (29/09)</td><td>dois links abertos</td></tr><tr><td>VEM1768</td><td>P-1624 ag. pagamento (25/08)</td><td>AG-MVEM1768 ag. pagamento (24/09)</td><td>dois links abertos</td></tr><tr><td>CVKB0006</td><td>recompra RM em caixa de entrada (28/09)</td><td>AG-MCVKB0006 ag. pagamento (26/09)</td><td>imóvel finalizado em 2024</td></tr></tbody></table></div></details>
+ <details class="qc-links"><summary>Pedido gerado depois de o imóvel finalizar <span>17 pedidos</span></summary><div class="tw"><table><thead><tr><th>Imóvel</th><th>Franquia</th><th>Cidade</th><th>Finalizado</th><th>Pedido criado</th><th class="n">Valor (R$)</th></tr></thead><tbody><tr><td><b>CVKB0006</b></td><td>Fabricia Laranja</td><td>Maceió/AL</td><td><b>03/10/2024</b></td><td>26/09/2026</td><td class="n">2.798,46</td></tr><tr><td>CMH0202</td><td>Luís Eduardo Machado</td><td>Florianópolis/SC</td><td>27/02/2025</td><td>22/09/2026</td><td class="n">5.297,54</td></tr><tr><td>EKO0008</td><td>Erica Bianca</td><td>Mata de São João/BA</td><td>25/09/2025</td><td>28/09/2026</td><td class="n">3.202,50</td></tr><tr><td>EMD0012</td><td>Thiago Pinto</td><td>Penha/SC</td><td>19/12/2025</td><td>28/09/2026</td><td class="n">5.097,25</td></tr><tr><td>BSP0008</td><td>Erica Bianca</td><td>Mata de São João/BA</td><td>18/02/2026</td><td>20/09/2026</td><td class="n">4.504,85</td></tr><tr><td>CAI0211</td><td>Erica Bianca</td><td>Mata de São João/BA</td><td>08/04/2026</td><td>20/09/2026</td><td class="n">2.910,11</td></tr><tr><td>CUMD0002</td><td>Itatiana Moura</td><td>Maceió/AL</td><td>26/05/2026</td><td>28/09/2026</td><td class="n">2.959,70</td></tr><tr><td>CDD0077</td><td>Erica Bianca</td><td>Mata de São João/BA</td><td>25/06/2026</td><td>21/09/2026</td><td class="n">6.041,30</td></tr><tr><td>CUMD0003</td><td>Itatiana Moura</td><td>Maceió/AL</td><td>07/07/2026</td><td>28/09/2026</td><td class="n">2.959,70</td></tr><tr><td>ACD0006</td><td>Lucas Silveira</td><td>São José/SC</td><td>23/07/2026</td><td>19/09/2026</td><td class="n">2.662,09</td></tr><tr><td>DAB0001</td><td>Camila Costa</td><td>Porto Seguro/BA</td><td>23/07/2026</td><td>26/09/2026</td><td class="n">2.852,63</td></tr><tr><td>BTR0301</td><td>Jayson Luckemeyer</td><td>Balneário Camboriú/SC</td><td>30/07/2026</td><td>20/09/2026</td><td class="n">2.810,11</td></tr><tr><td>CNO0901</td><td>Marco Munchen</td><td>Balneário Camboriú/SC</td><td>21/08/2026</td><td>14/09/2026</td><td class="n">2.532,64</td></tr><tr><td>AST0103</td><td>Patrícia de Melo</td><td>Porto Seguro/BA</td><td>25/08/2026</td><td>19/09/2026</td><td class="n">3.595,13</td></tr><tr><td>UNQ0908</td><td>Leonardo Fernandes</td><td>Blumenau/SC</td><td>09/09/2026</td><td>22/09/2026</td><td class="n">2.309,74</td></tr><tr><td>ARY0015</td><td>Lucilene Cora</td><td>Porto Seguro/BA</td><td>09/09/2026</td><td>14/09/2026</td><td class="n">3.963,14</td></tr><tr><td>BLS1355</td><td>Agatha Gloria</td><td>Goiânia/GO</td><td>15/09/2026</td><td>20/09/2026</td><td class="n">1.361,59</td></tr></tbody></table></div></details></dd>
+ <dt>O que foi feito</dt><dd><p>Em 30/09 o agente de cancelamento passou a fechar pedido do agente em imóvel finalizado, em churn ou com a etiqueta "Enxoval validado". A 1ª rodada cancelou <b>77 pedidos / R$ 166.349,08</b>, sem tocar em pedido manual. Isso limpa o sintoma, mas o agente de adequação continua gerando os pedidos.</p></dd>
+ <dt class="mel">O que a Implantação precisa fazer</dt><dd class="mel"><p>Travar o agente de adequação: não criar pedido se o código já tiver pedido não cancelado ou se o card estiver em Finalizado ou churn. Conferir com a Matinali os possíveis envios em dobro (MEI0202, MBHE0805) e fechar o 2º link do OBO0004, que já pagou.</p></dd>
+</dl>
+</section>
+
+<p class="src">Fonte completa: <a href="https://henrymatsumoto-cpu.github.io/html-tasks/relatorio-impactos-implantacao.html" target="_blank">relatório do Henry Matsumoto</a>, 25/09/2026.</p>
+</section>
+</div>
+
+<div class="tab-panel" id="tab-qual" role="tabpanel">
+<!-- ================== QUALIDADE & FISCALIZAÇÃO ================== -->
+<section class="area">
+<div class="area-head">
+ <h2 style="margin:0">3 · Qualidade &amp; Fiscalização</h2>
+ <span class="who">Levantado pela <b>Operação · Qualidade de Franquias</b> · agosto e setembro/2026</span>
+</div>
+<p class="lede">A interação com a Implantação vem gerando cards de ocorrência que <b>não podem ser aplicados</b>: classificação pela régua antiga, sem evidência e sem controle de volume por franquia. Todas as correções listadas abaixo partiram de pedidos e explicações da Operação — a régua nova (v2, no ar desde 13/08) não chegou como instrução ao time de Tech/BizOps que construiu as automações.</p>
+
+<div class="subgroup">
+ <h3>▍Ocorrências</h3>
+ <p>Abertura de ocorrências (automação BizOps, abertura manual e vistoria) fora da régua v2 — cards sem evidência, sem teto por franquia e chamados de implantação caindo na fila de ocorrências.</p>
+</div>
+
+<section class="prob" id="prob-qf-1"><h3><span class="no">1</span>Recusa em criar a automação de ocorrências dentro da régua</h3>
+<dl class="pcm">
+ <dt>O que aconteceu</dt><dd><p>Em reunião com a Larissa (Implantação), a Operação apresentou a régua nova — códigos, pontuação, teto por franquia e exigência de evidência — e ofereceu <b>construir ela mesma a automação de abertura das ocorrências</b>, já dentro da régua. A oferta foi recusada.</p></dd>
+ <dt>Consequência</dt><dd><p>A automação seguiu do lado da Implantação/BizOps, sem as regras da régua nova. Os problemas 2 e 7 desta seção são efeito direto dessa decisão.</p></dd>
+ <dt class="mel">O que a Implantação precisa fazer</dt><dd class="mel"><p>Aceitar apoio da área dona do processo quando a mudança é grande. A régua continuou chegando à Implantação porque a Operação a levou — a cada problema encontrado, ponto a ponto.</p></dd>
+</dl>
+</section>
+
+<section class="prob" id="prob-qf-2"><h3><span class="no">2</span>Automação BizOps fora da régua e sem regulação de tempo</h3>
+<dl class="pcm">
+ <dt>Tamanho</dt><dd><p><b>27 cards</b> · <b>19 franquias</b> · 26 a 31/08 · remetente <code>bizops@seazone.com.br</code>.</p></dd>
+ <dt>O que aconteceu</dt><dd><p>Todos com o mesmo texto: <i>"A franquia está há Xh sem responder desde a última cobrança de adequação do imóvel &lt;código&gt; (SLA: 48h), com silêncio confirmado pelo agente"</i>. Três defeitos empilhados:</p>
+ <ul>
+   <li><b>Classificação errada:</b> entram com subcategoria <code>3.2</code>, que na régua v2 é "Avaliação do hóspede com nota 1". O código correto é <code>10.2 — Não responder na Central de Atividades</code>, teto de 1 por franquia/mês.</li>
+   <li><b>Sem teto por franquia:</b> abre um card por imóvel. Naihana Loyola Andriani recebeu 3; outras 6 franquias receberam 2 cada.</li>
+   <li><b>Tempo sem regulação:</b> SLA declarado é 48 h, cards chegaram com silêncio de 61 h a 600 h (média 227 h ≈ 9,5 dias); 11 dos 27 passam de 10 dias. Sem prova anexada e sem ninguém conferir antes do card virar ocorrência.</li>
+ </ul></dd>
+ <dt class="mel">Como foi resolvido</dt><dd class="mel"><p>Ajustado <b>a pedido da Operação</b>. Explicamos ponto a ponto o que estava fora da régua e a automação foi corrigida: 10.2 no lugar de 3.2, teto de 1 card por franquia/mês, abertura só com SLA vencido e link do chamado. <b>Os 27 cards de agosto não foram aplicados.</b></p></dd>
+</dl>
+</section>
+
+<section class="prob" id="prob-qf-3"><h3><span class="no">3</span>Cards de ocorrência sem evidência</h3>
+<dl class="pcm">
+ <dt>Tamanho</dt><dd><p><b>85 cards</b> em 4 levas · nenhum passível de pontuação pela régua v2.</p>
+ <div class="tw"><table><thead><tr><th>Leva</th><th>Período</th><th class="n">Cards</th><th>Evidência</th></tr></thead><tbody>
+ <tr><td>Automação BizOps (3.2 régua antiga)</td><td>26–31/08</td><td class="n">27</td><td>nenhuma</td></tr>
+ <tr><td>Vistoria (Ana Paula Friedrich + BCA1004)</td><td>agosto</td><td class="n">7</td><td>2 com print cortado</td></tr>
+ <tr><td>Morosidade franquia Jessica Cristine (2.2)</td><td>23/09</td><td class="n">32</td><td>link de inconformidades abre dizendo "todos os itens mínimos em dia"</td></tr>
+ <tr><td>Abertura manual (Larissa 24 + Caroline 2)</td><td>24–25/09</td><td class="n">26</td><td>nenhuma</td></tr>
+ </tbody></table></div></dd>
+ <dt>O que aconteceu</dt><dd><p>Pela régua v2, ocorrência sem evidência não pontua. Prints, quando existem, são cortados. Volume por franquia continua sendo um card por imóvel — Ivan Carlos Breitenbach e Leonardo Silva Rispoli Alves concentram 16 dos 26 cards de 24–25/09.</p></dd>
+ <dt class="mel">Como foi resolvido</dt><dd class="mel"><p>Explicamos o padrão mínimo de evidência (link do chamado ou print completo, com data e remetente visíveis). Os cards que chegaram sem prova não foram aplicados.</p></dd>
+</dl>
+</section>
+
+<section class="prob" id="prob-qf-4"><h3><span class="no">4</span>Vistoria sem instrução de correção para a franquia</h3>
+<dl class="pcm">
+ <dt>O que aconteceu</dt><dd><p>A franquia faz a vistoria, preenche o formulário e a inconformidade nasce ali. No chat, porém, vai só o aviso genérico de que foram encontradas divergências — sem apontar o item errado nem pedir reenvio corrigido. Ana Paula Friedrich: 6 cards (PVN0001, PVN0006, PVN0009, PVN0010, PVN0011, PVN0012), só 2 com evidência. Tiago dos Santos, BCA1004: registrado como "falta de retorno", mas o problema de fundo é o mesmo — identificação incorreta de ambientes. O mesmo erro aparece com rótulos diferentes, escondendo o volume real.</p></dd>
+ <dt>Risco</dt><dd><p>A vistoria não é devolvida para correção. A implantação segue com ambientes e capacidade de hóspedes errados — e esse é o documento que vai direto ao proprietário. Como o erro se repete em franquias diferentes, o problema está no formulário e nas instruções, não em descuido individual.</p></dd>
+ <dt class="mel">Como foi resolvido</dt><dd class="mel"><p>Ajustado depois de a Operação levar o caso. A comunicação da vistoria passou a trazer a evidência do erro e a orientação objetiva do que a franquia precisa ajustar.</p></dd>
+</dl>
+</section>
+
+<section class="prob" id="prob-qf-5"><h3><span class="no">5</span>Chamados de implantação caindo na Central de Atividades de ocorrência</h3>
+<dl class="pcm">
+ <dt>O que aconteceu</dt><dd><p>Chamados de implantação (vistoria, implantação nova, fotografia, adequação) apareciam na página de <b>Ocorrência</b> da Central de Atividades, que é a fila usada para comunicar penalidades às franquias (prazo de 48 h).</p></dd>
+ <dt>Impacto</dt><dd><p>A fila de ocorrências fica poluída. A franquia recebe como ocorrência (que tem caráter de penalidade) um chamado que é só etapa de implantação. E a gestão precisa separar e encerrar à mão o que não é dela.</p></dd>
+ <dt class="mel">Como foi resolvido</dt><dd class="mel"><p>Casos enviados à Ray, que explicou o problema à Larissa. Os chamados indevidos foram encerrados manualmente e os de implantação deixaram de cair na página de Ocorrência.</p></dd>
+</dl>
+</section>
+
+<section class="prob" id="prob-qf-6"><h3><span class="no">6</span>Mensagens de vistoria dentro de chamado de ocorrência</h3>
+<dl class="pcm">
+ <dt>O que aconteceu</dt><dd><p>A automação da Implantação, ao identificar um chamado já aberto para o mesmo imóvel + franquia, reaproveitou <b>um chamado de ocorrência</b> (com prazo de 48 h) para postar as mensagens de vistoria.</p></dd>
+ <dt>Impacto</dt><dd><p>A conversa da ocorrência se mistura com a da vistoria. A franquia deixa de saber a que está respondendo e qual prazo vale — e o chamado deixa de servir como registro limpo da resposta à ocorrência, que é justamente a evidência que a Operação usa.</p></dd>
+ <dt class="mel">Como foi resolvido</dt><dd class="mel"><p>Ajustado depois de a Operação sinalizar. Chamado de ocorrência deixou de receber mensagens de vistoria ou de implantação — cada assunto no seu próprio chamado.</p></dd>
+</dl>
+</section>
+
+<section class="prob" id="prob-qf-7"><h3><span class="no">7</span>Pedido de MCP próprio em vez de seguir a régua</h3>
+<dl class="pcm">
+ <dt>O que aconteceu</dt><dd><p>Em vez de uma automação de envio de ocorrências dentro da régua, a Implantação pediu um <b>MCP próprio</b>: o Claude identificaria o problema quando o time desse o comando e já enviaria a ocorrência. O motivador foram as levas de 23 a 25/09 — <b>58 cards sem evidência</b> (32 da franquia Jessica Cristine + 26 abertura manual), todas com um card por imóvel.</p></dd>
+ <dt class="mel">Como foi resolvido</dt><dd class="mel"><p>Para evitar esse caminho, a Operação (Amanda) e a Ray ajustaram o prompt que o time usa com o Claude para abrir as ocorrências, deixando explícitas a régua v2, a exigência de evidência e a consolidação por franquia.</p></dd>
+</dl>
+</section>
+
+<p class="src">Fonte completa (com anexo dos 26 cards de 24–25/09 e dos 27 imóveis da automação BizOps): análise interna da Operação · Qualidade de Franquias, 25/09/2026.</p>
+</section>
+</div>
+
+<!-- ================== PEDIDO ================== -->
+<div class="ask">
+<h2 style="margin-top:0">O que peço à diretoria</h2>
+<ol>
+ <li><b>Dono único por campo do cadastro.</b> Definir, para taxa de limpeza, quartos, travesseiros, capacidade, conta bancária, operação e comissão, qual é o único sistema autorizado a gravar. A automação nunca sobrescrevendo dado que veio da vistoria.</li>
+ <li><b>Automação segue a régua da área dona do processo.</b> Automação BizOps ou MCP que abre ocorrência precisa validar a régua v2 com Qualidade de Franquias antes de entrar em produção — classificação correta, teto por franquia e evidência obrigatória. Aceitar apoio da área dona quando ela se oferece a construir.</li>
+ <li><b>SLA de comunicação à liderança.</b> Toda vez que a Implantação identifica um problema com fornecedor, franquia ou operação, avisar a liderança em até 48 h. O caso Maraú (27 dias de silêncio, perda de fornecedora exclusiva) não pode repetir.</li>
+ <li><b>Handover formal antes de qualquer saída.</b> Documentação de transição validada com o novo responsável antes da transferência — com auditoria das bases operacionais (Pipefy, Sapron, artefato) logo após.</li>
+ <li><b>Implantação assume a operação da ferramenta que recebe.</b> Não é o BackOffice que integra Lojinha, agente de itens, calculadora ou automação de ocorrências ao processo. Cada entrega vem com etapa, mensagem, responsável e data.</li>
+ <li><b>Fechamento das duplicidades de setembro.</b> Adm/Fin cancela as 27 duplicadas (R$ 6.300) antes do fechamento. Correção do vínculo de operação nos 157 imóveis segue com a tech.</li>
+</ol>
+</div>
+
+<footer class="instfoot">
+ <div class="wm"><span class="sz-logo" role="img" aria-label="Seazone">sea<span class="sz-house"><svg viewBox="0 0 22 24" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="0" width="2.5" height="8" rx=".8" fill="#ff6b5c"/><path d="M1 11 L11 2 L21 11 L21 22 Q21 23 20 23 L2 23 Q1 23 1 22 Z" fill="#ff6b5c"/></svg></span>zone</span><span>Backoffice Franquias</span></div>
+ <div class="who"><b>Rayanne Oliveira</b>rayanne.oliveira@seazone.com.br<br>Documento interno · 28/09/2026</div>
+</footer>
+
+<script>
+// Tabs
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+ btn.addEventListener('click',()=>{
+  const id=btn.dataset.tab;
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active',b===btn));
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.toggle('active',p.id==='tab-'+id));
+ });
+});
+
+// Problemas colapsáveis — todos fechados no load, clique no título alterna
+document.querySelectorAll('.prob').forEach(p=>{
+ p.classList.add('collapsed');
+ const h=p.querySelector('h3');
+ if(h) h.addEventListener('click',()=>p.classList.toggle('collapsed'));
+});
+
+// Links âncora do quadro consolidado → problema detalhado (troca aba + abre bloco)
+document.querySelectorAll('a[href^="#prob-"]').forEach(a=>{
+ a.addEventListener('click',e=>{
+  e.preventDefault();
+  const id=a.getAttribute('href').slice(1);
+  const target=document.getElementById(id);
+  if(!target) return;
+  const panel=target.closest('.tab-panel');
+  if(panel && !panel.classList.contains('active')){
+   const tabId=panel.id.replace('tab-','');
+   document.querySelector('.tab-btn[data-tab="'+tabId+'"]').click();
+  }
+  target.classList.remove('collapsed');
+  setTimeout(()=>{
+   target.scrollIntoView({behavior:'smooth',block:'start'});
+   target.classList.add('hl');
+   setTimeout(()=>target.classList.remove('hl'),1800);
+  },90);
+ });
+});
+</script>
+</main></body></html>
